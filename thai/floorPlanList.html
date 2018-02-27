@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MesseInfor</title>
+    <meta
+            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+            name='viewport'>
+    <!--favicon-->
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- FontAwesome 4.3.0 -->
+    <link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../dep/select2/select2.min.css"
+          type="text/css">
+    <!-- Bootstrap time Picker -->
+    <link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+          type="text/css">
+    <!-- Theme style -->
+    <link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <!--uploadFile-->
+    <link href="../dep/uploadify/Huploadify.css" rel="stylesheet" type="text/css"/>
+    <link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+<ul class="dropdown-menu right-menu">
+    <li class="right-edit" data-num="">编辑</li>
+    <li class="right-del" data-num="">删除</li>
+    <li class="right-hide">隐藏</li>
+</ul>
+
+<div class="wrapper">
+
+    <header class="main-header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <a class="btn btn-default a_prev pull-left margin0"><span
+                    class="fa fa-chevron-left"></span></a>
+            <div class="group-box">
+                <div class="group-width">
+                    <ul class="list-unstyled list-inline pull-left group-list">
+                        <!--<li data-type="3" class="active">全部展商</li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="set-box">
+                <a class="btn btn-default a_next margin0 set-btn"><span
+                        class="fa fa-cog"></span>&nbsp;设置</a>
+                <div class="set-list">
+                    <div class="form-group clearfix">
+                        <select class="pull-left" name="search-year"
+                                style="margin-top: 5px;"></select> <a
+                            class="btn fa fa-plus group-add-btn pull-right hidden"
+                            data-toggle="modal" data-target="#rule-set" data-num=""></a>
+                    </div>
+                    <ul class="list-unstyled">
+
+                    </ul>
+                </div>
+            </div>
+            <a class="btn btn-default a_next pull-right margin0"><span
+                    class="fa fa-chevron-right"></span></a>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <!--<a class="btn fa fa-cog pull-left title-set-btn"
+                               data-toggle="tooltip" data-original-title="筛选设置"></a> <input type="text"
+                                                                                            name="search-text"
+                                                                                            class="form-control pull-left"
+                                                                                            placeholder="请输入公司/Email/手机/电话"
+                                                                                            style="width: 300px; margin-top: 4px;">
+                            <div class="select_box search_box" style="width: 300px;margin-left: 23px;margin-top: 13px;">
+                                <ul class="list-unstyled"></ul>
+                            </div>
+                            <button class="btn fa fa-search pull-left btn-search"
+                                    style="margin-top: 4px;"></button>
+                            <a class="btn fa fa-filter pull-right hall-screen hidden"
+                               data-toggle="tooltip" data-original-title="筛选器"></a>-->
+                            <a class="btn fa fa-edit pull-right hall-edit" data-toggle="tooltip"
+                               data-original-title="编辑" data-num=""></a>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body content-box">
+                            <table class="table table-condensed table-bordered table-hover hall-list">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                            <!-- pagination -->
+                            <div class="m-pagination"></div>
+                            <!-- end pagination -->
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer"></footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-light">
+        <!-- Tab panes -->
+        <!--<div class="tab-content">
+            <div class='form-group margin0'>
+                <label class='control-sidebar-subheading hide'> <input
+                        type='checkbox' data-controlsidebar='control-sidebar-open'
+                        class='pull-right'/> 保持当前栏在页面右侧
+                </label>
+            </div>
+            <h4 class='control-sidebar-heading margin0'>筛选器</h4>
+            <div class="tab-content-list">
+                <div class="form-group">
+                    <label data-type="0" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 邮编
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="1" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 城市
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="2" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 省份
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="3" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 国家
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="4" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 展商类型
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="12" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 客户经理
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="5" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 创建人
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="6" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 类型
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="7" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 子类型
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="25" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 兴趣
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="50" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 兴趣级别
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="55" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 回应状态
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="26" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 回应方法
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="70" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 规模
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="71" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 规模单位
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="75" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 年限
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+                <div class="form-group">
+                    <label data-type="80" class="control-sidebar-subheading title"
+                           style="margin-left: 15px;"> <span
+                            class="fa fa-chevron-right"></span> 客户级别
+                    </label>
+                    <ul class="list-unstyled"
+                        style="margin-left: 15px; display: none;"></ul>
+                </div>
+            </div>
+            <h4 class='control-sidebar-heading'
+                style="border-bottom: solid 1px #444; border-top: solid 1px #444;">
+                <span class="caret"></span> 常见任务
+            </h4>
+            <div class="form-group">
+                <ul class="list-unstyled">
+                    <li><a class="btn-assign-accountManager" href="#" data-num="">分配客户经理</a></li>
+                    <li><a class="btn-import btn-hide" href="#" data-num="20100400">导入（请先在头部点击选择展会）</a></li>
+                    <li><a class="btn-export-queryResults btn-hide" href="#" data-num="20100500">导出所有</a></li>
+                    <li><a class="btn-export-selected btn-hide" href="#" data-num="20100500">导出所选</a></li>
+                    <li><a class="btn-export-invoice btn-hide" href="#" data-num="20100600">导出开票信息</a></li>
+                </ul>
+            </div>
+        </div>-->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<div class="modal fade bs-example-modal-sm" id="title-set"
+     tabindex="-1" role="dialog" aria-labelledby=""
+     aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">编辑筛选器</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="title-select-all">
+                    <label><input type="checkbox" value="all"/>选择所有</label>
+                </h5>
+                <ul class="todo-list">
+
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary title-set-save"
+                        data-container="body" data-toggle="popover"
+                        data-placement="bottom" data-content="确定">确定
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="rule-set" tabindex="-1"
+     role="dialog" aria-labelledby="" aria-hidden="true"
+     data-backdrop="static">
+    <div class="modal-dialog modal-sm" style="width: 800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">组编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form id="rule-set-form" autocomplete="off">
+                    <div class="form-group clearfix">
+                        <label class="col-xs-1 padding0">组名</label>
+                        <div class="col-xs-11">
+                            <input type="text" class="form-control" name="groupName"/> <input
+                                type="hidden" name="flag" value="80100000"/> <input
+                                type="hidden" name="groupId" value=""/>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-condensed table-hover rule-list">
+                    <thead>
+                    <tr>
+                        <td style="width: 30%;">字段</td>
+                        <td style="width: 20%;">规则</td>
+                        <td style="width: 30%;">值</td>
+                        <td style="width: 10%;">关系</td>
+                        <td style="width: 10%;"><a
+                                class="btn fa fa-plus rule-add-btn"></a></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary rule-set-save"
+                        data-container="body" data-toggle="popover"
+                        data-placement="bottom" data-content="确定">确定
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="modal-editHall" tabindex="-1" role="dialog"
+     aria-labelledby="modal-editHall" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" style="width: 500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" class="E-info uploadFile" autocomplete="off" method="POST"
+                      enctype="multipart/form-data">
+                    <input type="hidden" name="hall_id" value="">
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">上传CAD<span class="red">*</span></label>
+                        <div class="col-xs-9 padding0">
+                            <input class="form-control" type="file" name="upload" value="">
+                        </div>
+                    </div>
+                </form>
+                <form role="form" class="E-info hallInfo" autocomplete="off" method="POST">
+                    <input type="hidden" name="hallId" value="">
+                    <!--<div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">上传CAD<span class="red">*</span></label>
+                        <div class="col-xs-6 padding0">
+                            <input type="text" class="form-control" name="fileName" disabled="disabled">
+                        </div>
+                        <div class="col-xs-3 uploadify-container padding0">
+                            <div class="uploadify cadFile_upload"></div>
+                        </div>
+                    </div>-->
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">展馆<span class="red">*</span></label>
+                        <div class="col-xs-9 padding0">
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">定位描述<span class="red">*</span></label>
+                        <div class="col-xs-9 padding0">
+                            <textarea class="form-control" name="position" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">自定义1</label>
+                        <div class="col-xs-9 padding0">
+                            <textarea class="form-control" name="other" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">自定义2</label>
+                        <div class="col-xs-9 padding0">
+                            <textarea class="form-control" name="others" rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-editHall-save">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" id="modal-generateBooth" role="dialog"
+     aria-labelledby="modal-generateBooth" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" style="width: 500px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">生成展位</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" class="E-info" autocomplete="off" method="POST">
+                    <input type="hidden" name="" value="">
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">输入图层<span class="red">*</span></label>
+                        <div class="col-xs-9 padding0">
+                            <select class="form-control" multiple="multiple" data-placeholder="Select input layers"
+                                    style="width: 100%;" id="drpOut">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">展位线图层<span class="red">*</span></label>
+                        <div class="col-xs-9 padding0">
+                            <select class="form-control" data-placeholder="Select a booth border"
+                                    style="width: 100%;" id="drpBooth">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">展位号图层<span class="red">*</span></label>
+                        <div class="col-xs-9 padding0">
+                            <select class="form-control" data-placeholder="Select a booth No"
+                                    style="width: 100%;" id="drpBoothNo">
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-generateBooth-save">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- jQuery UI 1.11.2 -->
+<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"
+        type="text/javascript"></script>
+<!-- Bootstrap 3.3.2 JS -->
+<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Select2 -->
+<script src="../dep/select2/select2.full.min.js"></script>
+<!-- SlimScroll -->
+<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+        type="text/javascript"></script>
+<!-- include data.js -->
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- AdminLTE App -->
+<script src="../dep/js/app.js" type="text/javascript"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dep/js/demo.js" type="text/javascript"></script>
+<!--上传文件-->
+<!--<script src="../dep/uploadify/jquery.Huploadify.js"></script>-->
+<!-- jQuery Form Plugin -->
+<script src="../FloorPlan/js/jquery.from.js"></script>
+
+<!-- include 多语言资源文件 -->
+<script src="../dep/js/langT.message.js"></script>
+<script>
+    var _objLang = _obj._objZh;
+    var storage_80100000 = {
+        years: '',
+        groupList: [],
+        searchList: [],
+        title: [{"name": "name", "show": 1, "title": "展馆"},
+            {"name": "position", "show": 1, "title": "定位"},
+            //{"name": "section", "show": 1, "title": "展区"},
+            {"name": "other", "show": 1, "title": "自定义1"},
+            {"name": "others", "show": 1, "title": "自定义2"},
+            {"name": "url", "show": 1, "title": "CAD文件"},
+            {"name": "operate", "show": 1, "title": "操作"}
+        ]
+    };
+    var _pageFlag = 80100000;
+</script>
+<!-- include pagination.js -->
+<script src="../dep/js/mricode.pagination.js"></script>
+<!-- include Jquery.alert.js -->
+<script src="../dep/js/Jquery.alert.js"></script>
+<script src="../dep/js/top.js"></script>
+<script src="../js/floorPlanList.js"></script>
+</body>
+</html>

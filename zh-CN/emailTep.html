@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>MesseInfor</title>
+		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		 		<!--favicon-->
+		<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+		<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+		<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<!-- Bootstrap 3.3.4 -->
+		<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<!-- FontAwesome 4.3.0 -->
+		<link href="../dep/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<!-- Theme style -->
+		<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+		<!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. 
+		<link href="../dep/AdminLTE/skins/_all-skins.css" rel="stylesheet" type="text/css" />-->
+		<!--富文本编辑器-->
+		<link href="../dep/summernote/summernote.min.css" rel="stylesheet" type="text/css" />
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+	        <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	        <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+
+	<body class="skin-blue-light sidebar-mini sidebar-collapse">
+		
+		<div class="modal fade" id="send-mail" tabindex="-1"
+			role="dialog" aria-labelledby="" aria-hidden="true"
+			data-backdrop="static">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title">发送测试邮件</h4>
+					</div>
+					<div class="modal-body clearfix">
+						<div class="form-group clearfix">
+							<label class="col-xs-3 text-center">主题<span class="red">*</span></label>
+							<div class="col-xs-9">
+								<input class="form-control" name="name" type="text" placeholder="请输入主题">
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-3 text-center">邮箱地址<span class="red">*</span></label>
+							<div class="col-xs-9">
+								<input class="form-control" name="email" type="text" placeholder="请输入邮箱地址">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary btn-check-send"
+							data-container="body" data-toggle="popover"
+							data-placement="bottom" data-content="发送">发送</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+		<div class="wrapper">
+
+			<header class="main-header">
+
+			</header>
+			<!-- Left side column. contains the logo and sidebar -->
+			<aside class="main-sidebar">
+
+			</aside>
+
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+			
+				<!-- Main content -->
+				<section class="content">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="box">
+								<div class="box-header">
+									<h3 class="box-title">
+										<span class="fa fa-file"></span>&nbsp;&nbsp;邮件模板
+									</h3>
+									<a class="btn fa fa-trash pull-right btn-del btn-hide"
+									data-toggle="tooltip" data-original-title="删除"
+									data-num="21100600"></a>
+									<a class="btn fa fa-edit pull-right btn-edit btn-hide"
+									data-toggle="tooltip" data-num="21100400" data-original-title="编辑"></a>
+									<a data-original-title="返回列表" data-toggle="tooltip" class="btn fa fa-list pull-right btn-goBack hidden"></a>
+									<a class="btn fa fa-plus pull-right btn-add btn-hide" data-toggle="tooltip" data-original-title="添加" data-num="21100200"></a>
+								</div>
+								<div class="box-body">
+									<div class="content-box">
+										<table class="table table-condensed table-bordered table-hover">
+											<thead>
+												<tr>
+													<th>模板名称</th>
+													<th>模板主题</th>
+													<th>发件人</th>
+													<th>模板类型</th>
+													<th>创建者</th>
+												</tr>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="box-body hidden">
+									<div class="content-box">
+										<form>
+										<input type="hidden" id="tId" />
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">选择发件人<span class="red">*</span></label>
+											<div class="col-xs-3">
+												<select name="" id="sender" class="form-control">
+												</select>
+											</div>
+											<div class="col-xs-8">
+												<strong>如果你需要的发件人没有显示在下列列表中，请联系你的系统管理员进行添加。</strong>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">模板名<span class="red">*</span></label>
+											<div class="col-xs-3">
+												<input type="text" name="" id="name" class="form-control" placeholder="请输入模板名">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">模板主题<span class="red">*</span></label>
+											<div class="col-xs-3">
+												<input type="text" name="" id="emailTitle" class="form-control">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">模板类型</label>
+											<div class="col-xs-3">
+												<select class="form-control" id="title" name="">
+													<option value="0">观众推广</option>
+													<option value="1">展商推广</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">回复邮件地址<span class="red">*</span></label>
+											<div class="col-xs-3">
+												<input type="text" name="" id="email" class="form-control">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">创建者</label>
+											<div class="col-xs-3">
+												<input type="text" name="" id="personName" disabled="disabled" class="form-control">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">插入项</label>
+											<div class="col-xs-3">
+												<select class="form-control select-field">
+												  <option value="no">选择插入项</option>
+												  <option value="${MERGE0}">公司名</option>
+												  <option value="${EMAIL}">邮箱地址</option>
+												  <option value="${MOBILE}">手机号码</option>
+												  <option value="${LNAME}">姓</option>
+												  <option value="${FNAME}">名</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-right">邮件内容</label>
+											<div class="col-xs-11">
+												<div id="cord"> </div>
+												<textarea name="cordHtmlString" cols="" rows="" style="display: none;"></textarea>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<div class="col-xs-10 col-xs-offset-1">
+												<div class="btn-group" data-toggle="buttons">
+												  <label class="btn btn-default active html-select">
+												    <input type="radio" name="options" id="option1" autocomplete="off" checked>预览模式
+												  </label>
+												  <label class="btn btn-default html-select">
+												    <input type="radio" name="options" id="option2" autocomplete="off">HTML源码模式
+												  </label>
+												</div>
+												<a class="btn btn-default btn-check">测试</a>
+												<a class="btn btn-default btn-save">保存</a>
+											</div>
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</section>
+
+			</div>
+			<!-- /.content-wrapper -->
+			<footer class="main-footer">
+
+			</footer>
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- jQuery 2.1.4 -->
+		<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+		<!-- Bootstrap 3.3.2 JS -->
+		<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<!-- SlimScroll -->
+		<script src="../dep/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+
+        <!-- AdminLTE App -->
+		<script src="../dep/js/app.js" type="text/javascript"></script>
+		<!-- AdminLTE for demo purposes -->
+		<script src="../dep/js/demo.js" type="text/javascript"></script>
+		<!--富文本编辑器-->
+		<script src="../dep/summernote/summernote.min.js"></script>
+		<script src="../dep/summernote/summernote-zh-CN.js"></script>
+		<!-- include Jquery.alert.js -->
+		<script src="../dep/js/Jquery.alert.js"></script>
+		<script src="../dep/js/langT.message.js"></script>
+		<script>
+			var _objLang = _obj._objZh;
+		</script>
+		<!-- include pagination.js -->
+		<script src="../dep/js/top.js"></script>
+		<script src="../js/emailTep.js"></script>
+	</body>
+
+</html>

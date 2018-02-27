@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MesseInfor</title>
+    <meta
+            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+            name='viewport'>
+
+    <!--favicon-->
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- font-awesome 4.3.0 -->
+    <link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- Theme style -->
+    <link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">-->
+    <!--uploadFile -->
+    <link href="../dep/uploadify/Huploadify.css" rel="stylesheet"
+          type="text/css"/>
+    <!--<link href="../dep/bootstrap/css/metro.css" rel="stylesheet"
+          type="text/css">-->
+    <link href="../dep/css/mricode.pagination.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+<div class="wrapper">
+
+    <header class="main-header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header)
+    <section class="content-header">
+      <h1>
+        &nbsp;
+      </h1>
+    </section>-->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="set-box">
+                                <a class="btn btn-default margin0 set-btn"><span
+                                        class="fa fa-list"></span>&nbsp;列表</a>
+                                <div class="set-list">
+                                    <div class="form-group clearfix">
+                                        <select class="pull-left" name="selectPage"
+                                                style="margin-top: 5px;"></select><a
+                                            class="pull-right cursorponter btn-back">返回列表</a>
+                                    </div>
+                                    <ul class="list-unstyled">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--<a class="btn fa fa-save pull-right btn-contract-save"
+                                    data-toggle="tooltip" data-original-title="保存" data-num=""></a>-->
+                            <h3 class="box-title">
+                                <span class="fa fa-file"></span> 待审核合同信息
+                            </h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <form class="E-info" id="contract-info" autocomplete="off">
+                                <input type="hidden" name="contractId" value="">
+                                <input type="hidden" name="templateId" value="">
+                                <input type="hidden" name="url" value="">
+                                <div class="col-md-4 padding0">
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">合同编号</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="code" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">展馆/展位号</label>
+                                        <div class="col-xs-4" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="hallName" type="text" readonly="readonly">
+                                        </div>
+                                        <div class="col-xs-5" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="boothNames" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">联系人</label>
+                                        <div class="col-xs-6" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="personName" type="text" readonly="readonly">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <div class="checkbox margin0">
+                                                <label> <input type="checkbox" name="oldExhibitor" value="0" disabled>
+                                                    老客户
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">联系电话</label>
+                                        <div class="col-xs-2" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="+86"
+                                                   name="countryCodePN" type="text" readonly="readonly">
+                                        </div>
+                                        <div class="col-xs-2" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="021"
+                                                   name="areaCodePN" type="text" readonly="readonly">
+                                        </div>
+                                        <div class="col-xs-5" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="phone"
+                                                   type="tel" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">合同状态</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <select class="form-control" name="statusId" disabled="disabled"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">审核状态</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <select class="form-control" name="auditStatus" disabled="disabled">
+                                                <option value="10">未提交内部审核</option>
+                                                <option value="20">已提交内部审核</option>
+                                                <option value="30">内部审核不通过</option>
+                                                <option value="40">内部审核通过</option>
+                                                <option value="50">未提交终审</option>
+                                                <option value="60">已提交终审</option>
+                                                <option value="70">终审不通过</option>
+                                                <option value="80">终审通过</option>
+                                                <option value="90">取消审核中</option>
+                                                <option value="100">合同取消审核不通过</option>
+                                                <option value="0">取消</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title padding0">品牌名称</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input type="text" class="form-control" name="brand" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 padding0">
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">展商名称</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="exhibitorName" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">展位/服务</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder=""
+                                                   name="productServiceName" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">联系地址</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="address" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title padding0">职位</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input type="text" class="form-control" name="title" value="" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">合同模板</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" name="templateName" value=""> <span class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+                                            <div class="ctName_box select_box" style="width: 332px; display: none;">
+                                                <ul class="list-unstyled"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title padding0">业务属性</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input type="text" class="form-control" name="businessBG" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">合同文件</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <!--<input class="form-control" placeholder="" name="managerName" type="text" readonly="readonly">-->
+                                            <a target="_blank" href="javascript:;" id="contractFile"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 padding0">
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">商机名称</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="business"
+                                                   type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">总金额</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder=""
+                                                   name="money" type="number" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">E-mail</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="email"
+                                                   type="email" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title padding0">手机</label>
+                                        <div class="col-xs-2" style="padding-left: 0px">
+                                            <input type="tel" class="form-control" name="countryCodeMN"
+                                                   value="" placeholder="+86" readonly="readonly">
+                                        </div>
+                                        <div class="col-xs-7" style="padding-left: 0px;">
+                                            <input type="tel" class="form-control" name="mobileNum" value="" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left">客户经理</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input class="form-control" placeholder="" name="managerName" type="text" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title padding0">品牌所属国</label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <input type="text" class="form-control" name="brandCountry" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label class="col-xs-3 title text-left"></label>
+                                        <div class="col-xs-9" style="padding-left: 0px">
+                                            <button class="btn btn-primary btn-flat btn-review hidden" type="button"
+                                                    data-num=""
+                                                    style="width: 100%;height: 24px;font-size: 12px;line-height: 10px;">
+                                                送审
+                                            </button>
+                                            <button class="btn btn-primary btn-flat btn-submitted hidden" type="button"
+                                                    data-num=""
+                                                    style="width: 100%;height: 24px;font-size: 12px;line-height: 10px;" disabled="disabled">
+                                                已送审
+                                            </button>
+                                            <button class="btn btn-primary btn-flat btn-generateContractFile hidden"
+                                                    type="button" data-num=""
+                                                    style="width: 100%;height: 24px;font-size: 12px;line-height: 10px;">
+                                                生成合同
+                                            </button>
+                                            <button class="btn btn-primary btn-flat pull-left btn-adopt hidden btn-hide"
+                                                    type="button" data-num="20980000"
+                                                    style="width: 45%;height: 24px;font-size: 12px;line-height: 10px;">
+                                                通过
+                                            </button>
+                                            <button class="btn btn-primary btn-flat pull-right btn-notPass hidden btn-hide"
+                                                    type="button" data-num="20980000"
+                                                    style="width: 45%;height: 24px;font-size: 12px;line-height: 10px;">
+                                                不通过
+                                            </button>
+                                            <button class="btn btn-primary btn-flat pull-left btn-passCancel hidden btn-hide" type="button" data-num="20980000" style="width: 100%;height: 24px;font-size: 12px;line-height: 10px;">
+                                                通过取消合同
+                                            </button>
+                                            <button class="btn btn-primary btn-flat pull-left btn-notpassCancel hidden btn-hide" type="button" data-num="20980000" style="width: 100%;height: 24px;font-size: 12px;line-height: 10px;">
+                                                不通过取消合同
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group clearfix">-->
+                                        <!--<label class="col-xs-3 title text-left"></label>-->
+                                        <!--<div class="col-xs-9" style="padding-left: 0px">-->
+                                            <!--<button class="btn btn-primary btn-flat pull-right btn-cancelContract hidden btn-hide"-->
+                                                    <!--type="button" data-num="20970200"-->
+                                                    <!--style="width: 100%;height: 24px;font-size: 12px;line-height: 10px;">-->
+                                                <!--取消合同-->
+                                            <!--</button>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                </div>
+                            </form>
+                            <div class="clearfix"></div>
+                            <div class="nav-tabs-custom E-item-content content-box" style="padding-top: 0px">
+                                <ul class="nav nav-tabs">
+                                </ul>
+                                <div class="tab-content"></div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer hidden"></div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer"></footer>
+    <!-- Control Sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<div class="modal fade bs-example-modal-sm" id="modal-note"
+     tabindex="-1" role="dialog" aria-labelledby=""
+     aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">插入备注</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" class="E-info">
+                    <div class="form-group clearfix">
+                        <label class="col-xs-12 title padding0 red">
+                            *友情提示：请您确认已经认真核对合同每条内容！
+                        </label>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-2 title padding0">备注<small class="red">*</small></label>
+                        <div class="col-xs-10 padding0">
+                            <textarea class="form-control" name="discription"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-saveNote"
+                        data-container="body" data-toggle="popover"
+                        data-placement="bottom" data-content="确定">保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- jQuery UI 1.11.2 -->
+<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+<!-- Bootstrap 3.3.2 JS -->
+<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="../dep/js/app.js"></script>
+<!-- aminLTE for demo purposes-->
+<script src="../dep/js/demo.js"></script>
+<!--<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"
+        charset="UTF-8"></script>
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"
+        charset="UTF-8"></script>-->
+<!--上传文件 -->
+<script src="../dep/uploadify/jquery.Huploadify.js"></script>
+<!-- 树插件
+<script src="../dep/bootstrap/js/jquery.ztree.all-3.5.min.js"></script> -->
+<script src="../dep/js/mricode.pagination.js"></script>
+<!-- include 多语言资源文件 -->
+<script src="../dep/js/langT.message.js"></script>
+<script>
+    var _objLang = _obj._objZh;
+    var productServiceObj = {
+        10: "标准展位",
+        20: "光地",
+        130:'豪华展位',
+        30: "室外展位",
+        40: "会刊广告",
+        50: "赞助",
+        60: "门票",
+        70: "佣金",
+        80: "搭建",
+        90: "租赁",
+        91: "商旅",
+        92: "翻译",
+        93: "运输",
+        94: "媒体",
+        99: "其他",
+        110: "会议",
+        120: "现场广告"
+    }
+</script>
+<!-- include Jquery.alert.js -->
+<script src="../dep/js/Jquery.alert.js"></script>
+<script src="../dep/js/top.js"></script>
+<script>
+    var storageTab = [
+        {"text": "合同相关文件","num": 20880600,"dir": "0"},
+        {"text":"展位/服务","num":20880800,"dir":"0"},
+        {"text":"历史合同文件","num":20881000,"dir":"0"},
+        {"text":"审核记录","num":20881200,"dir":"0"}
+    ];
+    storageTab = mergeTab(storageTab,funGetStorage('localStorage', 'storageTab_' + _url));
+</script>
+<script src="../js/contractReviewDetail.js"></script>
+</body>
+
+</html>

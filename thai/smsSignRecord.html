@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+ 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark"
+	type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon"
+	type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico"
+	rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- FontAwesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet"
+	type="text/css" />
+<!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. 
+		<link href="../dep/AdminLTE/skins/_all-skins.css" rel="stylesheet" type="text/css" />-->
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+	type="text/css" />
+<link href="../dep/uploadify/Huploadify.css" rel="stylesheet"
+	type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<style>
+.setp-list {
+	display: block;
+	height: 22px;
+	margin-bottom: 10px;
+}
+
+.setp-list li {
+	display: block;
+	float: left;
+	height: 22px;
+	color: #d3d3d3;
+	position: relative;
+	padding-right: 10px;
+	line-height: 22px;
+	border-bottom: solid 1px #f3f3f3;
+	border-top: solid 1px #f3f3f3;
+}
+
+.setp-list li:after {
+	content: '';
+	border: 10px solid transparent;
+	border-left-color: #fdfdfd;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	right: -20px;
+	z-index: 0;
+}
+
+.setp-list li.active {
+	padding-left: 20px;
+	color: #333;
+	background-color: #f3f3f3;
+}
+
+.setp-list li.active:after {
+	border-left-color: #f3f3f3;
+}
+</style>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+			<script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<a class="btn fa fa-list pull-right btn-back hidden" data-toggle="tooltip" data-original-title="返回列表"></a>
+								<a class="btn fa fa-plus pull-right btn-record-add"
+									data-toggle="tooltip" data-original-title="新增" data-num=""></a>
+								<h3 class="box-title">
+									<span class="fa fa-file"></span>&nbsp;&nbsp;短信标签备案
+								</h3>
+							</div>
+							<div class="box-body content-box">
+								<div id="recordList" class="">
+									<!-- <select class="hidden" name="recordStatus">
+											<option value="0"></option>
+											<option value="10"></option>
+											<option value="20"></option>
+									</select> -->
+									<table class="table table-condensed table-bordered table-hover table-record">
+										<thead>
+											<tr>
+												<th>公司名称</th>
+												<th>短信标签</th>
+												<th>申请人</th>
+												<th>审核状态</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+								<div id="recordEdit" class="hidden">
+									<div class="col-xs-12"
+										style="border: 1px solid #FBB521; margin: 0; padding: 30px; background-color: #FFFCF7; line-height: 26px">
+										<div class="col-xs-7">
+											<strong>1、我们会在收到您的备案申请付款后的十个工作日内为您完成备案。</strong><br /> <strong>2、短信标签备案说明</strong><br />
+											为规范通信短信息服务行为，维护短信息用户的合法权益，所有企业短信均需要包含固定的短信标签，并需要备案。
+										</div>
+										<!--<div class="col-xs-3 col-xs-offset-1">
+											 <strong>3、短信标签备案对网易收件人的作用</strong><br /> -
+											如果不申请网易诚信邮,当天发送超过1000的邮件会到达垃圾箱或者广告箱,严重会导致弹回.<br /> -
+											不申请网易诚信邮无法保证事务类邮件正常发送<br /> -
+											申请网易诚信邮后推广类邮件会在订阅箱显示(默认邮件保留30天,上述垃圾箱与广告箱只保留7天)<br /> <strong>4、
+												短信标签备案对其他域名（如新浪、搜狐等）收件人的：</strong><br /> - 向ISP声明是一个可信任的发件人<br />
+											- 出问题后，可简化一些申诉步骤 
+										</div>-->
+									</div>
+									<div class="col-xs-5">
+										<label class="col-xs-12 text-left" style="padding: 10px 0;">备案信息</label>
+										<div class="form-group clearfix">
+											<label class="col-xs-2 padding0 title text-left">企业名称</label>
+											<div class="col-xs-10">
+												<input type="text" name="companyName" class="form-control">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-2 padding0 title text-left">官方网站</label>
+											<div class="col-xs-10">
+												<input type="text" name="website" class="form-control">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-2 padding0 title text-left">注册地址</label>
+											<div class="col-xs-10">
+												<input type="text" name="address" class="form-control">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-2 padding0 title text-left">电话</label>
+											<div class="col-xs-3">
+												<input type="text" name="countryCodePN"
+													class="form-control" placeholder="86">
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px;">
+												<input type="text" name="areaCodePN" class="form-control" placeholder="021">
+											</div>
+											<div class="col-xs-4" style="padding-left: 0px;">
+												<input type="tel" name="phone" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-5 col-xs-offset-1">
+										<label class="col-xs-12 text-left" style="padding: 10px 0;">申请人信息</label>
+										<form name="myInfo">
+											<div class="form-group clearfix">
+												<label class="col-xs-2 padding0 title text-left">姓名</label>
+												<div class="col-xs-10">
+													<input type="text" name="UserName" class="form-control"
+														readonly="readonly">
+												</div>
+											</div>
+											<div class="form-group clearfix">
+												<label class="col-xs-2 padding0 title text-left">手机</label>
+												<div class="col-xs-3">
+													<input type="text" name="countryCodeMN"
+														class="form-control" readonly="readonly" placeholder="086">
+												</div>
+												<div class="col-xs-7" style="padding-left: 0px;">
+													<input type="tel" name="mobileNum" class="form-control"
+														readonly="readonly">
+												</div>
+											</div>
+											<!--<div class="form-group clearfix">-->
+												<!--<label class="col-xs-2 padding0 title text-left">电话</label>-->
+												<!--<div class="col-xs-3">-->
+													<!--<input type="text" name="" class="form-control"-->
+														<!--readonly="readonly" placeholder="86">-->
+												<!--</div>-->
+												<!--<div class="col-xs-3" style="padding-left: 0px;">-->
+													<!--<input type="text" name="" class="form-control"-->
+														<!--readonly="readonly" placeholder="021">-->
+												<!--</div>-->
+												<!--<div class="col-xs-4" style="padding-left: 0px;">-->
+													<!--<input type="text" name="" class="form-control"-->
+														<!--readonly="readonly">-->
+												<!--</div>-->
+											<!--</div>-->
+											<!--<div class="form-group clearfix">-->
+												<!--<label class="col-xs-2 padding0 title text-left">QQ</label>-->
+												<!--<div class="col-xs-10">-->
+													<!--<input type="text" name="" class="form-control"-->
+														<!--readonly="readonly">-->
+												<!--</div>-->
+											<!--</div>-->
+										</form>
+									</div>
+									<div class="clearfix"></div>
+									<div class="col-xs-5" style="margin-top: 20px">
+										<div class="form-group clearfix">
+											<label class="col-xs-3 padding0 title text-left">短信标签</label>
+											<div class="col-xs-9">
+												<input type="text" name="procdutName" class="form-control" placeholder="标签格式：【标签内容】">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<div class="col-xs-12" style="text-align: center; background-color: #fffdee; border: solid 1px #edd28b; color: #FE0000;">
+												短信标签是运营商规定在短信推广中一定要使用短信起始标识</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 padding0 title text-left">当前日均发送量</label>
+											<div class="col-xs-9">
+												<input type="text" name="sendNum" class="form-control">
+											</div>
+											<span class="col-xs-12 padding0 text-left"><font color="#0074E5">您此处短信标签备案的总费用为：人民币</font>&nbsp;<font color="red"><b>1,800</b></font></span>
+										</div>
+									</div>
+									<div class="col-xs-5 col-xs-offset-1" style="margin-top: 20px;height: 180px">
+										<!-- <table class="table table-condensed table-bordered table-striped">
+											<thead>
+												<tr>
+													<td colspan="3">一般贵司IT或域名管理部分可操作申请，例如demo.sh.messeinfor.com，并增加2条如下DNS记录</td>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th>域名</th>
+													<th>MX纪录</th>
+													<th>内容记录</th>
+												</tr>
+												<tr>
+													<td>XXX.xxx.com</td>
+													<td>MX5</td>
+													<td>smip-in.messebridge.com</td>
+												</tr>
+												<tr>
+													<td>XXX.xxx.com</td>
+													<td>MX10</td>
+													<td>alt.1.smip-in.messebridge.com</td>
+												</tr>
+											</tbody>
+										</table> -->
+									</div>
+									<div class="col-xs-5">
+										<label class="col-xs-12 text-left" style="padding: 10px 0;">上传资质文件（请上传1M以内的JPG或PDF格式的文件,注：PDF文件暂不能预览）</label>
+										<div class="form-group clearfix">
+											<label class="col-xs-4 padding0 title text-left">营业执照</label>
+											<div class="col-xs-8 uploadify-container">
+												<a href="javascript:;" class="businesslicUrl"></a> <input
+													type="hidden" name="businesslicUrl" value="">
+												<div id="businesslicUrl" class="uploadify"
+													style="margin: 5px 0px 15px;"></div>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-4 padding0 title text-left">组织机构</label>
+											<div class="col-xs-8 uploadify-container">
+												<a href="javascript:;" class="organizationUrl"></a> <input
+													type="hidden" name="organizationUrl" value="">
+												<div id="organizationUrl" class="uploadify"
+													style="margin: 5px 0px 15px;"></div>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-4 padding0 title text-left">税务登记证</label>
+											<div class="col-xs-8 uploadify-container">
+												<a href="javascript:;" class="taxlicUrl"></a> <input
+													type="hidden" name="taxlicUrl" value="">
+												<div id="taxlicUrl" class="uploadify"
+													style="margin: 5px 0px 15px;"></div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-5 col-xs-offset-1">
+										<label class="col-xs-12 text-left" style="padding: 10px 0;">上传两个企LOGO（请上传1M以内的JPG或PDF格式的文件,注：PDF文件暂不能预览）</label>
+										<div class="form-group clearfix">
+											<label class="col-xs-4 padding0 title text-left">Logo1:165*70像素</label>
+											<div class="col-xs-8 uploadify-container">
+												<a href="javascript:;" class="logoUrl1"></a> <input
+													type="hidden" name="logoUrl1" value="">
+												<div id="logoUrl1" class="uploadify"
+													style="margin: 5px 0px 15px;"></div>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-4 padding0 title text-left">Logo2:204*204像素</label>
+											<div class="col-xs-8 uploadify-container">
+												<a href="javascript:;" class="logoUrl2"></a> <input
+													type="hidden" name="logoUrl2" value="">
+												<div id="logoUrl2" class="uploadify"
+													style="margin: 5px 0px 15px;"></div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12">
+										<label class="col-xs-12 text-left"
+											style="padding: 10px 0; border-bottom: solid 1px #444;">发票信息</label>
+										<div class="col-xs-11 col-xs-offset-1 invoice-step"
+											style="margin: 15px 0px;">
+											<a class="btn btn-default btn-primary" href="#"
+												role="button">不开具发票</a> <a class="btn btn-default" href="#"
+												role="button">增值税普通发票</a> <a class="btn btn-default"
+												href="#" role="button">增值税专用发票</a>
+										</div>
+										<div class="col-xs-11 col-xs-offset-1">
+											<div class="invoice-box"></div>
+											<div class="invoice-box hidden" data-type="10">
+												<ul class="list-unstyled setp-list">
+													<li class="active">1.填写公司信息</li>
+													<li class="" style="padding-left: 15px;">2.填写收票人信息</li>
+												</ul>
+												<div class="step1">
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left"></label>
+														<div class="col-xs-4">
+															<input class="form-control" value="">
+															<a href="javascript:;" class="btn-addInvoice"><strong>新增单位发票</strong></a>
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">发票抬头</label>
+														<div class="col-xs-4">
+															<select class="form-control" name="name"></select>
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<div class="col-xs-4 col-xs-offset-1">
+															<button class="btn btn-primary btn-step1-next"
+																type="button" data-content="下一步">下一步</button>
+														</div>
+													</div>
+												</div>
+												<div class="step2 hidden">
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">发票内容</label>
+														<div class="col-xs-4">
+															<select class="form-control" name="content">
+																<option value="0">服务费</option>
+																<option value="1">持术服务费</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">收票人姓名：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="receiveName"
+																class="form-control">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">收票人手机：<span
+															class="red">*</span></label>
+														<div class="col-xs-1" style="padding-right: 5px;">
+															<input type="text" name="" class="form-control"
+																placeholder="+86">
+														</div>
+														<div class="col-xs-3" style="padding-left: 5px;">
+															<input type="text" name="receivePhone"
+																class="form-control">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<input type="hidden" name="countryId" value=""> <input
+															type="hidden" name="provinceId" value=""> <input
+															type="hidden" name="cityId" value=""> <label
+															class="col-xs-1 padding0 title text-left">收票人省份：<span
+															class="red">*</span></label>
+														<div class="col-xs-2" style="padding-right: 5px;">
+															<input class="form-control" placeholder="输入国家/地区关键字"
+																name="countryName" type="text"> <span
+																class="glyphicon form-control-feedback glyphicon glyphicon-search"
+																style="right: 5px;"></span>
+															<div class="country_box select_box">
+																<ul class="list-unstyled"></ul>
+															</div>
+														</div>
+														<div class="col-xs-1" style="padding: 0 5px;">
+															<select class="form-control" name="provinceName"><option value="" disabled selected>省份/州</option></select>
+														</div>
+														<div class="col-xs-1" style="padding-left: 5px;">
+															<select class="form-control" name="cityName"><option value="" disabled selected>城市/区</option></select>
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">详细地址：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="receiveAddress"
+																class="form-control">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<div class="col-xs-4 col-xs-offset-1">
+															<button class="btn btn-primary btn-step2-save"
+																type="button">保存</button>
+															<button class="btn btn-default btn-step2-prev"
+																type="button">返回上一步</button>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="invoice-box hidden" data-type="20">
+												<ul class="list-unstyled setp-list">
+													<li class="active">1.填写公司信息</li>
+													<li class="" style="padding-left: 15px;">2.填写收票人信息</li>
+												</ul>
+												<div class="step1">
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">单位名称：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="companyName"
+																class="form-control" readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">纳税人识别码：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="code" class="form-control"
+																readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">注册地址：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="address" class="form-control"
+																readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">注册电话：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="tel" name="phone" class="form-control"
+																readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">开户银行：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="bankName" class="form-control"
+																readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">银行帐号：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="bankAccount"
+																class="form-control" readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<div class="col-xs-4 col-xs-offset-1">
+															<button class="btn btn-primary btn-step1-next"
+																type="button">下一步</button>
+														</div>
+													</div>
+												</div>
+												<div class="step2 hidden">
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">发票内容</label>
+														<div class="col-xs-4">
+															<select class="form-control" name="content"
+																disabled="disabled">
+																<option value="0">服务费</option>
+																<option value="1">持术服务费</option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">收票人姓名：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="receiveName"
+																class="form-control" readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">收票人手机：<span
+															class="red">*</span></label>
+														<div class="col-xs-1" style="padding-right: 5px;">
+															<input type="text" name="" class="form-control"
+																readonly="readonly">
+														</div>
+														<div class="col-xs-3" style="padding-left: 5px;">
+															<input type="text" name="receivePhone"
+																class="form-control" readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<input type="hidden" name="countryId" value=""> <input
+															type="hidden" name="provinceId" value=""> <input
+															type="hidden" name="cityId" value=""> <label
+															class="col-xs-1 padding0 title text-left">收票人省份：<span
+															class="red">*</span></label>
+														<div class="col-xs-2" style="padding-right: 5px;">
+															<input class="form-control" placeholder="输入国家/地区关键字"
+																name="countryName" type="text" readonly="readonly">
+															<!-- <span
+																class="glyphicon form-control-feedback glyphicon glyphicon-search"
+																style="right: 5px;"></span>
+															<div class="country_box select_box">
+																<ul class="list-unstyled"></ul>
+															</div> -->
+														</div>
+														<div class="col-xs-1" style="padding: 0 5px;">
+															<select class="form-control" name="provinceName"
+																disabled="disabled"></select>
+														</div>
+														<div class="col-xs-1" style="padding-left: 5px;">
+															<select class="form-control" name="cityName"
+																disabled="disabled"></select>
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<label class="col-xs-1 padding0 title text-left">详细地址：<span
+															class="red">*</span></label>
+														<div class="col-xs-4">
+															<input type="text" name="receiveAddress"
+																class="form-control" readonly="readonly">
+														</div>
+													</div>
+													<div class="form-group clearfix">
+														<div class="col-xs-4 col-xs-offset-1">
+															<button class="btn btn-default btn-step2-prev"
+																type="button">返回上一步</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12">
+										<label class="col-xs-12 text-left"
+											style="padding: 10px 0; border-top: solid 1px #444;">&nbsp;</label>
+										<div class="form-group clearfix">
+											<label class="col-xs-1 padding0 title text-left">支付密码：<span
+												class="red">*</span></label>
+											<div class="col-xs-2">
+												<input type="password" class="form-control" name="password">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<div class="col-xs-5 col-xs-offset-1">
+												<button class="btn btn-primary" type="button"
+													id="btn-record-submit">提交</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+
+
+    <!-- AdminLTE App -->
+	<script src="../dep/js/app.js" type="text/javascript"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dep/js/demo.js" type="text/javascript"></script>
+	<!--上传文件-->
+	<script src="../dep/uploadify/jquery.Huploadify.js"></script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+			var _objLang = _obj._objZh;
+		</script>
+	<!-- include pagination.js -->
+	<script src="../dep/js/top.js"></script>
+	<script src="../js/smsSignRecord.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MesseInfor</title>
+    <meta
+            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+            name='viewport'>
+    <!--favicon-->
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../FloorPlan/css/style-metro.css" rel="stylesheet" type="text/css">
+    <!--<link href="../FloorPlan/Expo-Engine_files/style.css" rel="stylesheet" type="text/css">-->
+    <!-- FontAwesome 4.3.0 -->
+    <link href="../dep/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../FloorPlan/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../dep/select2/select2.min.css" type="text/css">
+    <!-- Theme style -->
+    <link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="../FloorPlan/css/floorplan.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../FloorPlan/js/theme/default/style.mobile.css" type="text/css">
+    <link rel="stylesheet" href="../FloorPlan/js/theme/map.css" type="text/css">
+    <link href="../FloorPlan/css/colorpicker.css" rel="stylesheet"/>
+    <link href="../FloorPlan/css/main.css" rel="stylesheet"/>
+    <link href="../FloorPlan/css/easyui.css" rel="stylesheet"/>
+    <link href="../FloorPlan/js/theme/default/style.css" rel="stylesheet"/>
+    <link href="../FloorPlan/js/geosilk/geosilk.css" rel="stylesheet"/>
+    <!--uploadFile-->
+    <link href="../dep/uploadify/Huploadify.css" rel="stylesheet" type="text/css"/>
+    <link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+    <link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        #dia .tip, #sourceImg .tip {
+            position: absolute;
+            color: red;
+            top: 170px;
+            left: 69px;
+            display: none;
+        }
+
+        .olControlOverviewMapElement {
+            background-color: #cccccc !important;
+        }
+    </style>
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+    <ul class="dropdown-menu right-menu">
+        <li class="right-edit" data-num="">编辑</li>
+        <li class="right-del" data-num="">删除</li>
+        <li class="right-hide">隐藏</li>
+    </ul>
+
+    <div class="wrapper">
+
+        <header class="main-header"></header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar"></aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <a class="btn btn-default a_prev pull-left margin0"><span
+                        class="fa fa-chevron-left"></span></a>
+                <div class="group-box">
+                    <div class="group-width">
+                        <ul class="list-unstyled list-inline pull-left group-list">
+                        </ul>
+                    </div>
+                </div>
+                <div class="set-box">
+                    <a class="btn btn-default a_next margin0 set-btn"><span
+                            class="fa fa-cog"></span>&nbsp;设置</a>
+                    <div class="set-list">
+                        <div class="form-group clearfix">
+                            <select class="pull-left" name="search-year"
+                                    style="margin-top: 5px;width: auto;height: auto;"></select> <a
+                                class="btn fa fa-plus group-add-btn pull-right"
+                                data-toggle="modal" data-target="#rule-set" data-num=""></a>
+                        </div>
+                        <ul class="list-unstyled">
+
+                        </ul>
+                    </div>
+                </div>
+                <a class="btn btn-default a_next pull-right margin0"><span
+                        class="fa fa-chevron-right"></span></a>
+            </section>
+            <!-- Content Header (Page header) -->
+            <div id="changeLanguage" class="hidden">
+                <!--<input type="radio" checked="checked" name="language" value="zh_CN">-->
+                <span style="display: inline-block;cursor: pointer;width: 50px;text-align: center;border-bottom: 1px solid rgb(0,91,184)"
+                      attrLanguage="zh_CN" id="chinese">中文</span>
+                <!--<input type="radio" name="language" value="en_US">-->
+                <span style="display: inline-block;cursor: pointer;width: 50px;text-align: center" id="English"
+                      attrLanguage="en_US">English</span>
+            </div>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <!--<a class="btn fa fa-cog pull-left title-set-btn"
+                                   data-toggle="tooltip" data-original-title="筛选设置"></a>-->
+                                <input type="text" name="search-text" class="form-control pull-left"
+                                       placeholder="请输入展位号/参展商名称" style="width: 300px;">
+                                <div class="select_box search_box" style="width: 300px;margin-top: 13px;">
+                                    <ul class="list-unstyled"></ul>
+                                </div>
+                                <button class="btn fa fa-search pull-left btn-search"></button>
+                                <!--<a class="btn fa fa-filter pull-right exhibitor-screen"
+                                   data-toggle="tooltip" data-original-title="筛选器"></a>-->
+                                <form class="E-info" id="form_search" autocomplete="off">
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix margin0">
+                                            <label class="title text-left" style="padding-top: 4px;">展厅号：</label>
+                                            <div class="col-xs-4">
+                                                <select class="form-control" id="select_hallList"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-4 padding0">
+                                        <div class="form-group clearfix margin0 compare-box">
+                                            <label class="col-xs-3 title text-left">对比展会</label>
+                                            <div class="col-xs-9">
+                                                <input type="text" name="eName" class="form-control" placeholder="请输入展会名称关键字">
+                                                <span class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+                                                <div class="EName_box select_box" style="display: none;">
+                                                    <ul class="list-unstyled"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix margin0">
+                                            <label class="col-xs-3 title padding0">合同状态<span class="red">*</span></label>
+                                            <div class="col-xs-9">
+                                                <input class="form-control" placeholder="" name="contractStatus" type="text" readonly="readonly"> <span class="glyphicon form-control-feedback glyphicon-chevron-down"></span>
+                                                <div class="contractStatus_box select_box">
+                                                    <ul class="list-unstyled">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </form>
+                            </div>
+                            <!--<div class="box-body content-box" id="fileContent">
+                            </div>-->
+                            <div class="box-body" id="dv_detailMap">
+                            </div>
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer"></footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-light">
+            <!-- Tab panes -->
+            <!--<div class="tab-content">
+                <div class='form-group margin0'>
+                    <label class='control-sidebar-subheading hide'> <input
+                        type='checkbox' data-controlsidebar='control-sidebar-open'
+                        class='pull-right' /> 保持当前栏在页面右侧
+                    </label>
+                </div>
+                <h4 class='control-sidebar-heading margin0'>筛选器</h4>
+                <div class="tab-content-list">
+                </div>
+                <h4 class='control-sidebar-heading'
+                    style="border-bottom: solid 1px #444; border-top: solid 1px #444;">
+                    <span class="caret"></span> 常见任务
+                </h4>
+                <div class="form-group">
+                    <ul class="list-unstyled">
+                    </ul>
+                </div>
+            </div>-->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+<!-- jQuery 2.1.4 -->
+<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- jQuery UI 1.11.2 -->
+<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"
+        type="text/javascript"></script>
+<!-- Bootstrap 3.3.2 JS -->
+<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Select2 -->
+<script src="../dep/select2/select2.full.min.js"></script>
+<!-- SlimScroll -->
+<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+        type="text/javascript"></script>
+<!-- include data.js -->
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- AdminLTE App -->
+<script src="../dep/js/app.js" type="text/javascript"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dep/js/demo.js" type="text/javascript"></script>
+<!--上传文件-->
+<script src="../dep/uploadify/jquery.Huploadify.js"></script>
+<script src="../FloorPlan/js/bootstrap-colorpicker.js"></script>
+<script src="../FloorPlan/js/OpenLayers.js"></script>
+<script src="../FloorPlan/js/Openlayers.Editor.all.js"></script>
+<!--<script src="../FloorPlan/js/javascript.util.min.js"></script>
+<script src="../FloorPlan/js/jsts.all.js"></script>-->
+<script src="../FloorPlan/js/sea.js"></script>
+<script src="../FloorPlan/js/seajs-text.js"></script>
+<script src="../FloorPlan/js/seajs-wrap.js"></script>
+<script src="../FloorPlan/js/underscore-min.js"></script>
+<script src="../FloorPlan/js/template.js"></script>
+<script src="../FloorPlan/js/FloorPlan_js/language.js"></script>
+<script src="../FloorPlan/js/FloorPlan_js/interfacceAPI.js"></script>
+<script src="../FloorPlan/js/jquery.easyui.min.js"></script>
+<script src="../FloorPlan/js/jquery.from.js"></script>
+<script src="../FloorPlan/js/openlayer.editor.lan/zh_CN.js"></script>
+<script src="../FloorPlan/js/FloorPlan_js/markerPoint.js"></script>
+<!-- include 多语言资源文件 -->
+<script src="../dep/js/langT.message.js"></script>
+<script>
+    var _objLang = _obj._objZh;
+    var storage_80200000 = {
+        years: '',
+        groupList: [],
+        searchList: [],
+        title: []
+    };
+    var _pageFlag = 80200000;
+</script>
+<!-- include pagination.js -->
+<script src="../dep/js/mricode.pagination.js"></script>
+<!-- include Jquery.alert.js -->
+<script src="../dep/js/Jquery.alert.js"></script>
+<script src="../dep/js/top.js"></script>
+<script src="../js/floorPlanOperate.js"></script>
+</body>
+</html>

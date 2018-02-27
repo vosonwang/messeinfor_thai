@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MesseInfor</title>
+    <meta
+            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+            name='viewport'>
+    <!--favicon-->
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../FloorPlan/css/style-metro.css" rel="stylesheet" type="text/css">
+    <!--<link href="../FloorPlan/Expo-Engine_files/style.css" rel="stylesheet" type="text/css">-->
+    <!-- FontAwesome 4.3.0 -->
+    <link href="../dep/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../FloorPlan/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Theme style -->
+    <link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="../FloorPlan/css/floorplan.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../FloorPlan/js/theme/default/style.mobile.css" type="text/css">
+    <link rel="stylesheet" href="../FloorPlan/js/theme/map.css" type="text/css">
+    <link href="../FloorPlan/css/colorpicker.css" rel="stylesheet"/>
+    <link href="../FloorPlan/css/main.css" rel="stylesheet"/>
+    <link href="../FloorPlan/css/easyui.css" rel="stylesheet"/>
+    <link href="../FloorPlan/js/theme/default/style.css" rel="stylesheet"/>
+    <link href="../FloorPlan/js/geosilk/geosilk.css" rel="stylesheet"/>
+    <!--uploadFile-->
+    <link href="../dep/uploadify/Huploadify.css" rel="stylesheet" type="text/css"/>
+    <link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+          rel="stylesheet">
+    <link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        #dia .tip, #sourceImg .tip {
+            position: absolute;
+            color: red;
+            top: 170px;
+            left: 69px;
+            display: none;
+        }
+
+        .olControlOverviewMapElement {
+            background-color: #cccccc !important;
+        }
+    </style>
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+<ul class="dropdown-menu right-menu">
+    <li class="right-edit" data-num="">编辑</li>
+    <li class="right-del" data-num="">删除</li>
+    <li class="right-hide">隐藏</li>
+</ul>
+
+<div class="wrapper">
+
+    <header class="main-header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <a class="btn btn-default a_prev pull-left margin0"><span
+                    class="fa fa-chevron-left"></span></a>
+            <div class="group-box">
+                <div class="group-width">
+                    <ul class="list-unstyled list-inline pull-left group-list">
+                    </ul>
+                </div>
+            </div>
+            <div class="set-box">
+                <a class="btn btn-default a_next margin0 set-btn"><span
+                        class="fa fa-cog"></span>&nbsp;设置</a>
+                <div class="set-list">
+                    <div class="form-group clearfix">
+                        <select class="pull-left" name="search-year"
+                                style="margin-top: 5px;width: auto;height: auto;"></select> <a
+                            class="btn fa fa-plus group-add-btn pull-right"
+                            data-toggle="modal" data-target="#rule-set" data-num=""></a>
+                    </div>
+                    <ul class="list-unstyled">
+
+                    </ul>
+                </div>
+            </div>
+            <a class="btn btn-default a_next pull-right margin0"><span
+                    class="fa fa-chevron-right"></span></a>
+        </section>
+        <!-- Content Header (Page header) -->
+        <div id="changeLanguage" class="hidden">
+            <!--<input type="radio" checked="checked" name="language" value="zh_CN">-->
+            <span style="display: inline-block;cursor: pointer;width: 50px;text-align: center;border-bottom: 1px solid rgb(0,91,184)"
+                  attrLanguage="zh_CN" id="chinese">中文</span>
+            <!--<input type="radio" name="language" value="en_US">-->
+            <span style="display: inline-block;cursor: pointer;width: 50px;text-align: center" id="English"
+                  attrLanguage="en_US">English</span>
+        </div>
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <!--<a class="btn fa fa-cog pull-left title-set-btn"
+                               data-toggle="tooltip" data-original-title="筛选设置"></a>-->
+                            <input type="text" name="search-text" class="form-control pull-left"
+                                   placeholder="请输入展位号/参展商名称" style="width: 300px;">
+                            <div class="select_box search_box" style="width: 300px;margin-top: 13px;">
+                                <ul class="list-unstyled"></ul>
+                            </div>
+                            <button class="btn fa fa-search pull-left btn-search"></button>
+                            <!--<a class="btn fa fa-filter pull-right exhibitor-screen"
+                               data-toggle="tooltip" data-original-title="筛选器"></a>-->
+                            <form class="E-info" id="form_search" autocomplete="off">
+                                <div class="col-md-4 padding0">
+                                    <div class="form-group clearfix margin0">
+                                        <label class="title text-left">展厅号：</label>
+                                        <div class="col-xs-4">
+                                            <select class="form-control" id="select_hallList"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-4 padding0">
+                                    <div class="form-group clearfix margin0 compare-box">
+                                        <label class="col-xs-3 title text-left">对比展会</label>
+                                        <div class="col-xs-9">
+                                            <input type="text" name="eName" class="form-control" placeholder="请输入展会名称关键字">
+                                            <span class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+                                            <div class="EName_box select_box" style="display: none;">
+                                                <ul class="list-unstyled"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 padding0">
+                                    <div class="form-group clearfix margin0">
+                                        <label class="col-xs-3 title padding0">合同状态<span class="red">*</span></label>
+                                        <div class="col-xs-9">
+                                            <input class="form-control" placeholder="" name="contractStatus" type="text" readonly="readonly"> <span class="glyphicon form-control-feedback glyphicon-chevron-down"></span>
+                                            <div class="contractStatus_box select_box">
+                                                <ul class="list-unstyled">
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                            </form>
+                        </div>
+                        <div class="box-body content-box" id="fileContent">
+                            <!--<table class="table table-condensed table-bordered table-hover exhibitor-list">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="m-pagination"></div>-->
+                        </div>
+                        <div class="box-body" id="dv_detailMap">
+                            <!--<table class="table table-condensed table-bordered table-hover exhibitor-list">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="m-pagination"></div>-->
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer"></footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-light">
+        <!-- Tab panes -->
+        <!--<div class="tab-content">
+            <div class='form-group margin0'>
+                <label class='control-sidebar-subheading hide'> <input
+                    type='checkbox' data-controlsidebar='control-sidebar-open'
+                    class='pull-right' /> 保持当前栏在页面右侧
+                </label>
+            </div>
+            <h4 class='control-sidebar-heading margin0'>筛选器</h4>
+            <div class="tab-content-list">
+            </div>
+            <h4 class='control-sidebar-heading'
+                style="border-bottom: solid 1px #444; border-top: solid 1px #444;">
+                <span class="caret"></span> 常见任务
+            </h4>
+            <div class="form-group">
+                <ul class="list-unstyled">
+                </ul>
+            </div>
+        </div>-->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<div id="sourceImg" style="display: none">
+    <form id="form3" method="POST" enctype="multipart/form-data">
+        <div class="importCadCss">
+            <span style="float: left;margin-top: 10px">上传原始图</span>
+            <input id="uploadImg" type="file" name="uploadImg" style="margin-left:20px;width: 150px" accept="image/*"/>
+        </div>
+        <div class="importCadCss">
+            <span>描述</span>
+            <input type="text" class="cadMargin" id="hallNoImgDesc">
+        </div>
+        <div class="importCadCss">
+            <span>馆号</span>
+            <input type="text" class="cadMargin" id="hallNoImg">
+        </div>
+        <div class="tip" id="sourceTip">
+            此馆号已经存在
+        </div>
+
+        <div style="margin-top: 20px;margin-left: 80px">
+            <input type="button" value="确定" class="button blue"
+                   id="uploadImgOK">
+            <input type="button" value="取消" class="button blue"
+                   id="uploadImgCancel">
+        </div>
+    </form>
+</div>
+<div id="Exhibition" style="display: none">
+    <div style="margin-top: 20px;margin-left: 20px">
+        <span style="margin-right: 25px">输入图层</span>
+        <input type="text" id="drpOut"/>
+    </div>
+    <div class="baseCss">
+        <span style="margin-right: 14px">展位线图层</span>
+        <select id="drpBooth"></select>
+    </div>
+    <div class="baseCss">
+        <span style="margin-right: 13px">展位号图层</span>
+        <select id="drpBoothNo"></select>
+    </div>
+    <!--
+    <div class="baseCss">
+        <span>语言</span>
+        <select id="drpLan" name="drpLan" style="width: 180px;margin-left: 49px">
+            <option value="en_US">英文</option>
+            <option value="zh_CN" selected="selected">中简</option>
+            <option value="zh_TW">中繁</option>
+        </select>
+    </div>-->
+    <div style="margin-top: 20px;margin-left: 135px">
+        <input type="button" value="生成" class="button blue"
+               id="generationExhi">
+        <input type="button" value="取消" class="button blue" id="cancelExhi">
+    </div>
+</div>
+<div id="dia" style="display: none">
+    <form id="form2" method="POST" enctype="multipart/form-data">
+        <div class="importCadCss">
+            <span style="float: left;margin-top: 10px">上传CAD展位图</span>
+            <input id="upload" type="file" name="upload" style="margin-left:20px;width: 150px"/>
+        </div>
+        <!--
+        <div class="importCadCss">
+            <span>馆号</span>
+            <input type="text" class="cadMargin" id="hallNo">
+        </div>-->
+        <div class="importCadCss">
+            <span style="margin-right: 13px">展馆</span>
+            <input id="halls" name="halls"/>
+        </div>
+        <div class="importCadCss">
+            <span>描述</span>
+            <input type="text" class="cadMargin" id="Caddesc">
+        </div>
+        <div class="tip" id="diaTip">
+            此馆号已经存在
+        </div>
+
+        <div style="margin-top: 20px;margin-left: 80px">
+            <input type="button" value="确定" class="button blue"
+                   id="btn_upload_OK">
+            <input type="button" value="取消" class="button blue"
+                   id="import_cancel">
+        </div>
+    </form>
+</div>
+<input type="hidden" value="" id="hallNoIsExist">
+
+<div id="cover">
+    <div id="loading-container" style="display: block;position: fixed;top:50%;left:50%;z-index: 1000001">
+        <div>
+            <img src='../FloorPlan/css/images/ajax-loader.gif'/>正在加载
+        </div>
+    </div>
+</div>
+<input id="btntext" type="button" style="display: none" data-toggle="modal" data-target="#invite_div">
+
+<div class="modal fade fade" id="invite_div"
+     style="width: 400px;border: 8px solid #E8E9F7;left: 58%;z-index: 11111111111111111111111 !important;">
+    <div class="modal-dialog" style="">
+        <div class="modal-footer" style="text-align: left">
+            <div style="margin-top: -12px">
+                <h3 style="height: 20px;line-height: 20px;">
+                    <em style="float: left;font-size: 14px;font-weight: 700;color: #369;">提示信息</em>
+                </h3>
+            </div>
+            <div style="width: 50px;display: inline-block">
+                <img src="../FloorPlan/Images/right.gif">
+            </div>
+            <div id="tips" style="text-align: center;margin-top: -12px">
+                提示
+            </div>
+            <button type="button" class="btn btn-default" id="shutdown" style="display: none"
+                    data-dismiss="modal">关闭
+            </button>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+
+<!-- jQuery 2.1.4 -->
+<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+<!-- jQuery UI 1.11.2 -->
+<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"
+        type="text/javascript"></script>
+<!-- Bootstrap 3.3.2 JS -->
+<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- SlimScroll -->
+<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+        type="text/javascript"></script>
+<!-- include data.js -->
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- AdminLTE App -->
+<script src="../dep/js/app.js" type="text/javascript"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dep/js/demo.js" type="text/javascript"></script>
+<!--上传文件-->
+<script src="../dep/uploadify/jquery.Huploadify.js"></script>
+<script src="../FloorPlan/js/bootstrap-colorpicker.js"></script>
+<script src="../FloorPlan/js/OpenLayers.js"></script>
+<script src="../FloorPlan/js/Openlayers.Editor.all.js"></script>
+<!--<script src="../FloorPlan/js/javascript.util.min.js"></script>
+<script src="../FloorPlan/js/jsts.all.js"></script>-->
+<script src="../FloorPlan/js/sea.js"></script>
+<script src="../FloorPlan/js/seajs-text.js"></script>
+<script src="../FloorPlan/js/seajs-wrap.js"></script>
+<script src="../FloorPlan/js/underscore-min.js"></script>
+<script src="../FloorPlan/js/template.js"></script>
+<script src="../FloorPlan/js/FloorPlan_js/language.js"></script>
+<script src="../FloorPlan/js/FloorPlan_js/interfacceAPI.js"></script>
+<script src="../FloorPlan/js/jquery.easyui.min.js"></script>
+<script src="../FloorPlan/js/jquery.from.js"></script>
+<script src="../FloorPlan/js/openlayer.editor.lan/zh_CN.js"></script>
+<script src="../FloorPlan/js/FloorPlan_js/markerPoint.js"></script>
+<!-- include 多语言资源文件 -->
+<script src="../dep/js/langT.message.js"></script>
+<script>
+    var _objLang = _obj._objZh;
+    var storage_80300000 = {
+        years: '',
+        groupList: [],
+        searchList: [],
+        title: [{"name": "companyName", "show": 1, "title": "公司", "index": 0},
+            {"name": "companyNameEN", "show": 1, "title": "公司（英文）", "index": 400},
+            {"name": "phone", "show": 1, "title": "电话"},
+            {"name": "mobileNum", "show": 1, "title": "手机", "index": 300},
+            {"name": "email", "show": 1, "title": "Email"},
+            {"name": "website", "show": 1, "title": "网址"},
+            {"name": "countryName", "show": 1, "title": "国家"},
+            {"name": "provinceName", "show": 1, "title": "省份"},
+            {"name": "cityName", "show": 1, "title": "城市"},
+            {"name": "address", "show": 1, "title": "地址"},
+            {"name": "addressEN", "show": 1, "title": "地址（英文）"},
+            {"name": "zipCode", "show": 1, "title": "邮编"},
+            {"name": "createrName", "show": 1, "title": "创建人"},
+            {"name": "customerManager", "show": 1, "title": "客户经理"},
+            {"name": "interest", "show": 1, "title": "兴趣"},
+            {"name": "interestLevel", "show": 1, "title": "兴趣级别"},
+            {"name": "startDate", "show": 1, "title": "回应日期", "index": 60},
+            {"name": "rStatus", "show": 1, "title": "回应状态"},
+            {"name": "responseMethod", "show": 1, "title": "回应方法"},
+            {"name": "level", "show": 1, "title": "客户级别"},
+            {"name": "scale", "show": 1, "title": "规模"},
+            {"name": "scaleUnit", "show": 1, "title": "规模单位"},
+            {"name": "years", "show": 1, "title": "年限"},
+            {"name": "createdStamp", "show": 1, "title": "创建时间", "index": 200}
+        ]
+    };
+    var _pageFlag = 80300000;
+</script>
+<!-- include pagination.js -->
+<script src="../dep/js/mricode.pagination.js"></script>
+<!-- include Jquery.alert.js -->
+<script src="../dep/js/Jquery.alert.js"></script>
+<script src="../dep/js/top.js"></script>
+<script src="../js/floorPlanEdit.js"></script>
+<script>
+    seajs.config({
+        base: "../FloorPlan/js/FloorPlan_js"
+    });
+    seajs.use(['index.js']);
+</script>
+</body>
+</html>

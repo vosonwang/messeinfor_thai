@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+	 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- FontAwesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+<!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load.
+		<link href="../dist/css/skins/_all-skins.css" rel="stylesheet" type="text/css" /> -->
+<!-- Theme style -->
+<link href="../dep/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+	type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="modal" id="furniture-modal">
+		<!-- data-backdrop="static" -->
+		<div class="modal-dialog" style="width: 1000px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title">家具租赁订单信息</h4>
+				</div>
+				<!-- overflow: hidden; height: 200px; -->
+				<div class="modal-body" style="width: auto;">
+					<table class="table table-condensed table-bordered table-striped hire-furnitures">
+
+						<thead>
+							<tr>
+								<th>图片</th>
+								<th>名称</th>
+								<th>规格</th>
+								<th>购买时间</th>
+								<th>数量</th>
+								<th>单价</th>
+								<th>金额</th>
+								<th>目标展位</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+			         <button type="button" class="btn btn-outline">Save changes</button> -->
+					<button type="button"
+						class="btn btn-primary btn-flat btn-sm pull-right"
+						data-dismiss="modal">确定</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<div class="modal" id="hotel-modal">
+		<!-- data-backdrop="static" -->
+		<div class="modal-dialog" style="width: 1000px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+					<h4 class="modal-title">酒店订单信息</h4>
+				</div>
+				<div class="modal-body" style="width: auto">
+					<table class="table table-condensed table-bordered table-striped lease-hotels">
+
+						<thead>
+							<tr>
+								<th>图片</th>
+								<th>预订人</th>
+								<th>床型</th>
+								<th>入住时间</th>
+								<th>退房时间</th>
+								<th>信用卡类型</th>
+								<th>信用卡号码</th>
+								<th>预定房间数</th>
+								<th>单价</th>
+								<th>金额</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+			         <button type="button" class="btn btn-outline">Save changes</button> -->
+					<button type="button"
+						class="btn btn-primary btn-flat btn-sm pull-right"
+						data-dismiss="modal">确定</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<div class="modal fade" id="R-info" tabindex="-1" role="dialog"
+		aria-labelledby="R-info" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm" style="width: 1040px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">操作</h4>
+				</div>
+				<div class="modal-generalize">
+					<div class="modal-body clearfix">
+						<form>
+							<input type="hidden" name="templateType" /> <input type="hidden"
+								name="id" /> <input type="hidden" name="exhibitorId" />
+							<div class="form-group clearfix">
+								<label class="col-xs-1 title text-left">名称</label>
+								<div class="col-xs-3">
+									<input class="form-control" placeholder="" name="companyName"
+										type="text" disabled="disabled">
+								</div>
+								<label class="col-xs-1 title text-left">语言</label>
+								<div class="col-xs-3">
+									<select class="form-control" name="languageType"
+										disabled="disabled">
+										<option value="1">中文</option>
+										<option value="3">Engilsh</option>
+									</select>
+								</div>
+								<label class="col-xs-1 title text-left">首选语言</label>
+								<div class="col-xs-3">
+									<select class="form-control" name="langFist"
+										disabled="disabled">
+										<option value="1">中文</option>
+										<option value="2">Engilsh</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<label class="col-xs-1 title text-left">国家</label>
+								<div class="col-xs-3">
+									<input class="form-control" placeholder="" name="countryName"
+										type="text" disabled="disabled">
+								</div>
+								<label class="col-xs-1 title text-left">省份</label>
+								<div class="col-xs-3">
+									<input class="form-control" name="provinceName"
+										disabled="disabled">
+								</div>
+								<label class="col-xs-1 title text-left">城市/区</label>
+								<div class="col-xs-3">
+									<input class="form-control" name="cityName"
+										disabled="disabled">
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<label class="col-xs-1 title text-left">邮编</label>
+								<div class="col-xs-3">
+									<input class="form-control" placeholder="" name="postCode"
+										type="text" disabled="disabled" />
+								</div>
+								<label class="col-xs-1 title text-left">邮箱</label>
+								<div class="col-xs-3">
+									<input class="form-control" placeholder="" name="email"
+										type="text" disabled="disabled" />
+								</div>
+								<label class="col-xs-1 title text-left">地址</label>
+								<div class="col-xs-3">
+									<input type="text" class="form-control" placeholder=""
+										name="companyAddress" disabled="disabled">
+								</div>
+							</div>
+							<div class="form-group clearfix">
+								<label class="col-xs-1 title text-left">网站</label>
+								<div class="col-xs-3">
+									<input class="form-control" placeholder="" name="website"
+										type="text" disabled="disabled" />
+								</div>
+								<label class="col-xs-1 title text-left">电话号码</label>
+								<div class="col-xs-3">
+									<input class="form-control" placeholder="" name="phone"
+										type="text" disabled="disabled" />
+								</div>
+								<label class="col-xs-1 title text-left">新展商</label>
+								<div class="col-xs-1">
+									<input type="checkbox" name="isNew" disabled="disabled" />
+								</div>
+
+							</div>
+						</form>
+					</div>
+					<div class="modal-tab-box">
+						<ul class="modal-tab list-unstyled">
+							<li>收款</li>
+							<li>开票</li>
+						</ul>
+						<div class="modal-box">
+							<div class="box1">
+								<div class="modal-right-menu record-menu">
+									<a class="btn btn-default btn-add btn-hide" data-num="70602000">增加</a>
+								</div>
+								<div class="modal-left-list record-list" style="width: 890px;">
+									<div>
+										<table class="table table-condensed table-bordered table-hover table-striped">
+											<thead>
+												<tr>
+													<th>订单名</th>
+													<th>收款人</th>
+													<th>付款人</th>
+													<th>付款金额</th>
+													<th>付款时间</th>
+													<th>付款描述</th>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="box2">
+								<div class="modal-right-menu invoice-menu">
+									<a class="btn btn-default btn-add btn-hide" data-num="70603000">增加</a>
+								</div>
+								<div class="modal-left-list invoice-list" style="width: 890px;">
+									<div>
+										<table class="table table-condensed table-bordered table-hover table-striped">
+											<thead>
+												<th>发票号</th>
+												<th>快递号</th>
+												<th>是否收到</th>
+												<th>开票时间</th>
+											</thead>
+											<tbody>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="receiving-modal" tabindex="-1"
+		role="dialog" aria-labelledby="receiving-modal" aria-hidden="true"
+		data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">添加收款信息</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" method="post">
+						<!--<div class="form-group clearfix">
+	          <label class="col-xs-2 text-right padding0">开票编号</label>
+	          <div class="col-xs-10"><input type="text" name="appendixId" class="form-control" /></div>
+	        </div>-->
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">付款人</label>
+							<div class="col-xs-10">
+								<input type="text" name="payer" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">付款金额</label>
+							<div class="col-xs-10">
+								<input type="number" name="money" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">付款描述</label>
+							<div class="col-xs-10">
+								<textarea class="form-control" name="desc" rows="3"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-save"
+						data-container="body" data-toggle="popover"
+						data-placement="bottom" data-content="保存">保存</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="invoice-modal" tabindex="-1" role="dialog"
+		aria-labelledby="invoice-modal" aria-hidden="true"
+		data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">添加开票信息</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" method="post">
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">开票信息编码</label>
+							<div class="col-xs-10">
+								<input type="text" name="id" value="" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">发票号</label>
+							<div class="col-xs-10">
+								<input type="text" name="cardNum" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">快递号</label>
+							<div class="col-xs-10">
+								<input type="number" class="form-control" name="num">
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-2 text-right padding0">是否收到</label>
+							<div class="col-xs-10">
+								<input type="checkbox" name="pid" value="1" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-save"
+						data-container="body" data-toggle="popover"
+						data-placement="bottom" data-content="保存">保存</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-export" tabindex="-1" role="dialog"
+		aria-labelledby="modal-export" aria-hidden="true"
+		data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">请选择需要导出的项目</h4>
+				</div>
+				<div class="modal-body clearfix">
+					<form target="_blank" method="post">
+						<label class="col-xs-3">请选择</label>
+						<div class="col-xs-9 no-padding" style="margin-bottom: 10px;">
+							<select class="form-control">
+								<option value="0" data-type="3" data-flag="1"
+									selected="selected">设施租赁（必填）</option>
+								<option value="1" data-type="3" data-flag="0">设施租赁（选填）</option>
+								<option value="2" data-type="2" data-flag="0">家具租赁</option>
+							</select>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									checked="checked" value="0" name="sszlb">已交</label>
+							</div>
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									value="1" name="sszlb">未交</label>
+							</div>
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									value="2" name="sszlb">未付</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin hidden">
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									checked="checked" value="0" name="sskx">已交</label>
+							</div>
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									value="2" name="sskx">未付</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin hidden">
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									checked="checked" value="0" name="jj">已交</label>
+							</div>
+							<div class="col-xs-12 no-padding">
+								<label class="title col-xs-10"><input type="radio"
+									value="2" name="jj">未付</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-export-submit"
+						data-container="body" data-toggle="popover"
+						data-placement="bottom" data-content="确定">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h5 class="no-margin"></h5>
+			</section>
+			<!-- Main content -->
+			<div class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<!--<h3 class="box-title"><i class="fa fa-file"></i>&nbsp;&nbsp;<span class="expo-name"></span></h3>
+	                  <a href="Rlist.html" class="btn fa fa-list pull-right" data-toggle="tooltip" data-original-title="返回"></a>
+	                  <label class="pull-right" style="margin: 5px 15px 0 0; cursor: pointer;"><input type="radio" name="paid" class="paid" value="1" style="margin-top: 3px;" />已付完</label>
+	                  <label class="pull-right" style="margin: 5px 0 0; cursor: pointer;"><input type="radio" name="paid" class="paid" value="0" style="margin-top: 3px;" checked="checked" />未付完</label>
+	                  <a class="btn fa fa-search pull-right search-btn" data-toggle="tooltip" data-original-title="搜索"></a>
+	                  <input class="form-control pull-right search-text" style="width: 210px;" placeholder="请输入展商名/开票帐户名/表单名搜索" type="text" />
+	                  -->
+								<label class="pull-left"
+									style="margin: 5px 15px 0 0; cursor: pointer;"> <input
+									type="radio" name="paid" value="3" style="margin-top: 3px;"
+									checked="checked" />全部记录 <a class="full-total"></a>
+								</label> <label class="pull-left"
+									style="margin: 5px 15px 0 0; cursor: pointer;"> <input
+									type="radio" name="paid" value="1" style="margin-top: 3px;" />已付完
+								</label> <label class="pull-left"
+									style="margin: 5px 0 0; cursor: pointer;"> <input
+									type="radio" name="paid" value="0" style="margin-top: 3px;" />未付完
+								</label> <a href="###"
+									class="btn fa fa-download export-btn pull-right btn-hide"
+									data-toggle="tooltip" data-original-title="导出"
+									data-num="70604000"></a> <a href="Rlist.html"
+									class="btn fa fa-list pull-right" data-toggle="tooltip"
+									data-original-title="返回"></a>
+								<button class="btn fa fa-search pull-right btn-search"></button>
+								<input type="text" name="search-text"
+									class="form-control pull-right" placeholder="请输入展商名/表单名"
+									style="width: 210px;" /> <label class="pull-right"
+									style="margin: 5px 0 0; padding-right: 20px; cursor: pointer;">总未付金额：
+									<a class="weiPay-total"></a>
+								</label> <label class="pull-right"
+									style="margin: 5px 0 0; padding-right: 20px; cursor: pointer;">总已付金额：
+									<a class="yipay-total"></a>
+								</label> <label class="pull-right"
+									style="margin: 5px 0 0; padding-right: 20px; cursor: pointer;">总应付金额：
+									<a class="yingpay-total"></a>
+								</label>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body M-table content-box">
+								<table class="table table-condensed table-bordered table-hover M-table">
+									<thead>
+										<tr>
+											<th>展商名</th>
+											<th>开票帐户名</th>
+											<th>表单名</th>
+											<th>应付金额</th>
+											<th>已付金额</th>
+											<th>未付金额</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+								<!-- pagination -->
+								<div class="m-pagination"></div>
+								<!-- end pagination -->
+							</div>
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+
+
+    <!-- AdminLTE App -->
+	<script src="../dep/js/app.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dep/js/demo.js"></script>
+
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+	</script>
+	<!-- include Jquery.alert.js -->
+	<!-- include pagination.js -->
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script src="../js/Rinfo.js"></script>
+</body>
+
+</html>

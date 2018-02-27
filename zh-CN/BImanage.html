@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>MesseInfor</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <!-- Bootstrap 3.3.4 -->
+        <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- Fontexhibitorwesome 4.3.0 -->
+        <link href="../dep/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+        <!--<link href="../dist/css/skins/_all-skins.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="../plugins/iCheck/all.css" rel="stylesheet" type="text/css" />-->
+        <link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet" type="text/css" />
+        <style type="text/css">
+            .cName_box li.item:hover,
+            .country_box li.item:hover {
+                background-color: #C1C1C1
+            }
+            
+            #company-info label {
+                font-weight: 400
+            }
+            .box-header > h5 > a.active, .box-header > h5 > a:hover {
+			    border-bottom: 2px solid #005bb8;
+			    color: #005bb8;
+			}
+			.box-header > h5 > a {
+			    color: #333;
+			    display: inline-block;
+			    font-size: 14px;
+			    font-weight: 300;
+			    margin: 0 15px 0 0;
+			}
+		</style>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WexhibitorRNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+
+    <body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="wrapper">
+
+            <header class="main-header">
+
+            </header>
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar">
+
+            </aside>
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) 
+        <section class="content-header">
+          <h1>
+            &nbsp;
+          </h1>
+        </section>-->
+
+                <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <form class="E-info" id="company-info" autocomplete="off">
+                                        <input type="hidden" name="countryId" value="" />
+                                        <input type="hidden" name="provinceId" value="" />
+										<div class="col-md-4 padding0">
+											<div class="form-group clearfix">
+												<label class="col-xs-3 title text-center">展会品牌</label>
+												<div class="col-xs-9" style="padding-left: 0px">
+													<select name="brand" class="form-control"></select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 padding0">
+											<div class="form-group clearfix">
+												<label class="col-xs-3 title text-center">展会名称</label>
+												<div class="col-xs-9" style="padding-left: 0px">
+													<select name="exhibition" class="form-control"></select>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 padding0">
+											<div class="form-group clearfix">
+												<label class="col-xs-3 title text-center">截止日期</label>
+												<div class="col-xs-9" style="padding-left: 0px">
+													<input type="text" class="form-control" name="date" readonly="readonly">
+												</div>
+											</div>
+										</div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <div class="nav-tabs-custom E-item-content content-box">
+                                        <ul class="nav nav-tabs">
+                                        </ul>
+                                        <div class="tab-content">
+
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer hidden">
+
+                                </div>
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </section>
+                <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+
+            </footer>
+            <!-- Control Sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <form action="" class="hidden" id="download" method="post" target="_blank">
+            <input type="hidden" name="content" value="">
+        </form>
+
+        <!-- jQuery 2.1.4 -->
+        <script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+        <!-- jQuery UI 1.11.2 -->
+        <script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+        <!-- Bootstrap 3.3.2 JS -->
+        <script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="../dep/echarts/echarts.js"></script>
+        <!-- include data.js -->
+        <script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+        <script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+		<!-- include Jquery.alert.js -->
+		<script src="../dep/js/Jquery.alert.js"></script>
+        <script src="../dep/js/app.js"></script>
+        <!-- include 多语言资源文件 -->
+        <script src="../dep/js/langT.message.js"></script>
+        <script>
+            var _objLang = _obj._objZh;
+        </script>
+        <!-- include Jquery.alert.js -->
+        <script src="../dep/js/Jquery.alert.js"></script>
+        <script src="../dep/js/top.js"></script>
+		<script>
+            var _tabInfo;
+            var _url = location.pathname.substring(location.pathname.lastIndexOf('/')+1,location.pathname.length);
+            if (funGetStorage('localStorage', 'localStorage_'+_url,_vParam)) {
+                _tabInfo = funGetStorage('localStorage', 'localStorage_'+_url);
+            } else {
+                _tabInfo = [
+                    {"text":"总数据统计","num":98100200,"dir":"0"},
+					{"text":"商机数据 ","num":98100400,"dir":"0"},
+					{"text":"展商数据","num":98100600,"dir":"0"},
+					{"text":"与往届对比","num":98100800,"dir":"0"},
+                    {"text":"展位销售情况","num":98101000,"dir":"0"},
+                    {"text":"Top20","num":98101200,"dir":"0"},
+                    {"text":"累计回款及占比","num":98101400,"dir":"0"}
+                ];
+            }
+		</script>
+        <script src="../js/BImanage.js"></script>
+    </body>
+
+</html>

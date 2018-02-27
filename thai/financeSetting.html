@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+ 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark"
+	type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon"
+	type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico"
+	rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- font-awesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet"
+	type="text/css" />
+<link href="../dep/bootstrap/css/metro.css" rel="stylesheet"
+	type="text/css">
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) 
+        <section class="content-header">
+          <h1>
+            &nbsp;
+          </h1>
+        </section>-->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<!-- <a class="btn fa fa-list pull-right" href="exhibitorList.html"
+									data-toggle="tooltip" data-original-title="返回列表"></a> <a
+									class="btn fa fa-save pull-right exhibitor-save"
+									data-toggle="tooltip" data-original-title="保存"
+									data-num="20200200"></a>-->
+								<h3 class="box-title">
+									<span class="fa fa-file"></span>&nbsp;&nbsp;设置信息
+								</h3> 
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+								<div class="nav-tabs-custom E-item-content content-box">
+									<ul class="nav nav-tabs">
+										<li class="more"><a data-toggle="tab" href="#tab_more"
+											aria-expanded="false">更多</a></li>
+									</ul>
+									<div class="tab-content">
+										<div id="tab_more" class="hidden">
+											<ul class="more-item list-group list-unstyled">
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer hidden"></div>
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+		<!-- Control Sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="../dep/js/app.js"></script>
+	<!-- aminLTE for demo purposes-->
+	<script src="../dep/js/demo.js"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+        var _objLang = _obj._objZh;
+	</script>
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script>
+        var storageTab = [
+            {"text":"付款方式","num":60400400,"dir":"0"},
+			{"text":"收款帐户","num":60400800,"dir":"0"},
+			{"text":"款项明细","num":60401000,"dir":"0"},
+			{"text":"发票明细","num":60401200,"dir":"0"},
+			{"text":"发票状态","num":60401400,"dir":"0"},
+			{"text":"快递信息","num":60401600,"dir":"0"}
+        ];
+        storageTab = mergeTab(storageTab,funGetStorage('localStorage', 'storageTab_' + _url));
+	</script>
+	<script src="../js/financeSetting.js"></script>
+</body>
+
+</html>

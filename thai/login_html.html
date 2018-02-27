@@ -1,0 +1,35 @@
+<div class="modal fade bs-example-modal-sm" id="fast-login" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">快速登陆</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" name="fast-login" id="fast-login-form" method="post">
+                    <div class="form-group input-group">
+                        <div class="input-group-addon">
+                            <i class="glyphicon glyphicon glyphicon-user"></i>
+                        </div>
+                        <input type="email" name="username" class="form-control" placeholder="用户名" value="" />
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </div>
+                        <input type="password" name="password" class="form-control" placeholder="密码" value="" />
+
+                    </div>
+                    <div class="checkbox">
+                        <input name="CheckCode" class="form-control" placeholder="验证码" style="width: 70px; display: inline-block; margin-right: 10px;" type="text"><img border="0" title="验证码" style="vertical-align: middle;" />
+                        <a style="cursor: pointer;" class="clickcode">换一张</a>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary fast-login-btn" data-container="body" data-toggle="popover" data-placement="bottom" data-content="登陆">登陆</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

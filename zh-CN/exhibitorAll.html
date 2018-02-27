@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+	 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- FontAwesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+	type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+	<ul class="dropdown-menu right-menu">
+		<li class="right-edit" data-num="">编辑</li>
+		<li class="right-del" data-num="">删除</li>
+		<li class="right-hide">隐藏</li>
+	</ul>
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<a class="btn btn-default a_prev pull-left margin0"><span
+					class="fa fa-chevron-left"></span></a>
+				<div class="group-box">
+					<div class="group-width">
+						<ul class="list-unstyled list-inline pull-left group-list">
+						</ul>
+					</div>
+				</div>
+				<div class="set-box">
+					<a class="btn btn-default a_next margin0 set-btn"><span
+						class="fa fa-cog"></span>&nbsp;设置</a>
+					<div class="set-list">
+						<div class="form-group clearfix">
+							<select class="pull-left" name="search-year" style="margin-top: 5px;"></select>
+						</div>
+						<ul class="list-unstyled">
+
+						</ul>
+					</div>
+				</div>
+				<a class="btn btn-default a_next pull-right margin0"><span
+					class="fa fa-chevron-right"></span></a>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<a class="btn fa fa-cog pull-left title-set-btn"
+									data-toggle="tooltip" data-original-title="筛选设置"></a> <input type="text"
+									name="search-text" class="form-control pull-left"
+									placeholder="请输入展商名关键字"
+									style="width: 300px; margin-top: 4px;">
+								<div class="select_box search_box" style="width: 300px;margin-left: 23px;margin-top: 13px;">
+									<ul class="list-unstyled"></ul>
+								</div>
+								<button class="btn fa fa-search pull-left btn-search"
+									style="margin-top: 4px;"></button>
+								<a class="btn fa fa-filter pull-right exhibitor-screen"
+									data-toggle="tooltip" data-original-title="筛选器"></a>
+								<!--<a class="btn fa fa-plus pull-right exhibitor-add" data-toggle="tooltip" data-original-title="新增" data-num=""></a>-->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body content-box">
+								<table class="table table-condensed table-bordered table-hover exhibitor-list">
+									<thead></thead>
+									<tbody></tbody>
+								</table>
+								<!-- pagination -->
+								<div class="m-pagination"></div>
+								<!-- end pagination -->
+							</div>
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-light">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class='form-group margin0'>
+					<label class='control-sidebar-subheading hide'> <input
+						type='checkbox' data-controlsidebar='control-sidebar-open'
+						class='pull-right' /> 保持当前栏在页面右侧
+					</label>
+				</div>
+				<h4 class='control-sidebar-heading margin0'>筛选器<a class="btn fa fa-remove clear-title pull-right" data-toggle="tooltip" data-original-title="清空所有" data-placement="bottom" style="color: #111;"></a></h4>
+				
+				<div class="tab-content-list">
+					<div class="form-group">
+						<label data-type="3" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span>客户经理
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="60" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span>商机状态
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+				</div>
+				<h4 class='control-sidebar-heading'
+					style="border-bottom: solid 1px #444; border-top: solid 1px #444;">
+					<span class="caret"></span> 常见任务
+				</h4>
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<div class="modal fade bs-example-modal-sm" id="title-set"
+		tabindex="-1" role="dialog" aria-labelledby=""
+		aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">编辑筛选器</h4>
+				</div>
+				<div class="modal-body">
+					<h5 class="title-select-all">
+						<label><input type="checkbox" value="all" />选择所有</label>
+					</h5>
+					<ul class="todo-list">
+
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary title-set-save"
+						data-container="body" data-toggle="popover"
+						data-placement="bottom" data-content="确定">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"
+		type="text/javascript"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+    <!-- AdminLTE App -->
+	<script src="../dep/js/app.js" type="text/javascript"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dep/js/demo.js" type="text/javascript"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+		var storage_20870000 = { 
+	        years : '',
+	        groupList : [],
+            searchList : []
+		};
+	</script>
+	<!-- include pagination.js -->
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script>
+        var storageTitle = [
+            {"name":"exhibitorName","show":1,"title":"展商名称"},
+            {"name":"personName","show":1,"title":"客户经理"},
+            {"name":"hallName","show":1,"title":"展馆"},
+            {"name":"boothName","show":1,"title":"展位号"},
+            {"name":"squareFootage","show":1,"title":"面积"},
+            {"name":"money","show":1,"title":"合同金额"},
+            {"name":"status","show":1,"title":"合同状态"},
+            {"name":"createdStamp","show":1,"title":"合同生成日期"},
+            {"name":"bstatus","show":1,"title":"商机状态"},
+            {"name":"createDate","show":1,"title":"创建时间"}
+        ];
+		storageTitle = mergeTitle(storageTitle,funGetStorage('localStorage', 'storageTitle_' + _url));
+		var storageTabTitle = funGetStorage('localStorage', 'storageTabTitle_' + _url)?funGetStorage('localStorage', 'storageTabTitle_' + _url):{};
+	</script>
+	<script src="../js/exhibitorAll.js"></script>
+
+</body>
+</html>

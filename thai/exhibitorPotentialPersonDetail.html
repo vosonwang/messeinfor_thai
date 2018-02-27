@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+	 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- font-awesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+	rel="stylesheet">
+<!--uploadFile -->
+<link href="../dep/uploadify/Huploadify.css" rel="stylesheet"
+	type="text/css" />
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) 
+        <section class="content-header">
+          <h1>
+            &nbsp;
+          </h1>
+        </section>-->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<div class="set-box">
+									<a class="btn btn-default margin0 set-btn"><span
+										class="fa fa-list"></span>&nbsp;列表</a>
+									<div class="set-list">
+										<div class="form-group clearfix">
+											<select class="pull-left" name="selectPage"
+												style="margin-top: 5px;"></select><a
+												class="pull-right cursorponter btn-back">返回列表</a>
+										</div>
+										<ul class="list-unstyled">
+
+										</ul>
+									</div>
+								</div>
+								<!-- <a class="btn fa fa-list pull-right"
+									href="exhibitorPotentialPerson.html" data-toggle="tooltip"
+									data-original-title="返回列表"></a> -->
+								<a class="btn fa fa-street-view pull-right exhibitor-go-reg" data-toggle="tooltip" data-original-title="转化为预约登记观众" data-num=""></a>
+								<a class="btn fa fa-user pull-right exhibitor-transfer-visitor" data-toggle="tooltip" data-original-title="添加到观众邀请目标" data-num=""></a>
+								<a class="btn fa fa-save pull-right exhibitor-save btn-hide"
+									data-toggle="tooltip" data-original-title="保存"
+									data-num="20800200"></a>
+								<a class="btn fa fa-arrow-right pull-right btn-next" data-original-title="下一条" data-toggle="tooltip"></a>
+								<a class="btn fa fa-arrow-left pull-right btn-prev" data-original-title="上一条" data-toggle="tooltip"></a>
+								<h3 class="box-title">
+									<span class="fa fa-file"></span>&nbsp;&nbsp;潜在参展商联系人
+								</h3>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+								<form class="E-info clearfix" id="person-info" autocomplete="off">
+									<input type="hidden" name="countryId" value=""> <input
+										type="hidden" name="provinceId" value=""> <input
+										type="hidden" name="cityId" value="">
+										<!-- <input type="hidden" name="roleId" value=""> -->
+									<div class="col-md-4 padding0">
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">姓名<span
+												class="red">*</span></label>
+											<div class="col-xs-4" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="lastname"
+													value="" placeholder="姓氏">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="firstname"
+													value="" placeholder="名字">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">公司名<span
+												class="red">*</span></label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="companyName">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">公司英文名</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="companyNameEN">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">部门</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="deptId">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">职位</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="title">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<div class="checkbox col-xs-3 margin0" style="padding-left: 0px">
+												<label> <input type="checkbox" name="type" value="1">
+													主要联系人
+												</label>
+											</div>
+											<label class="col-xs-4 title text-center">联系人状态</label>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<select class="form-control" name="flag">
+													<option value="" selected="selected">无</option>
+													<option value="10">新的</option>
+													<option value="20">有效的</option>
+													<option value="30">重复的</option>
+													<option value="40">应该被删除的</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 padding0">
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">称谓</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<select class="form-control" name="salutation">
+													<option value="0">先生</option>
+													<option value="10">小姐</option>
+													<option value="20">女士</option>
+													<option value="30">夫人</option>
+													<option value="40">博士</option>
+													<option value="50">教师</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">所在地区</label>
+											<div class="col-xs-3" style="padding-left: 0px;">
+												<input class="form-control" placeholder="国家/地区"
+													name="countryName" type="text"> <span
+													class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+												<div class="country_box select_box">
+													<ul class="list-unstyled"></ul>
+												</div>
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px;">
+												<select class="form-control" name="provinceName">
+													<option value="" disabled selected>省份/州</option>
+												</select>
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px;">
+												<select class="form-control" name="cityName">
+													<option value="" disabled selected>城市/区</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">地址<span
+													class="red">*</span></label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input class="form-control margin0" name="address" />
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">地址英文</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input class="form-control margin0" name="addressEN" />
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">角色</label>
+											<!-- <div class="col-xs-9" style="padding-left: 0px;">
+												<input class="form-control" placeholder="" name="roleName"
+													type="text" readonly="readonly"> <span
+													class="glyphicon form-control-feedback glyphicon-chevron-down"></span>
+												<div class="roleName_box select_box">
+													<ul class="list-unstyled">
+													</ul>
+												</div>
+											</div> -->
+											<div class="col-xs-9" id="role-multiselect" style="padding-left: 0px;"></div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">电话</label>
+											<div class="col-xs-2" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="countryCodePN" placeholder="+86">
+											</div>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input type="text" class="form-control" name="areaCodePN" placeholder="021">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<input type="tel" class="form-control" name="phone">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 padding0">
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">手机<span
+													class="red">*</span></label>
+											<div class="col-xs-2" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="countryCodeMN" placeholder="+86">
+											</div>
+											<div class="col-xs-4" style="padding-left: 0px">
+												<input type="tel" class="form-control" name="mobileNum">
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px">
+												<div class="checkbox margin0">
+													<label> <input type="checkbox" name="receiveSMS" value="">
+														勿发短信
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">传真</label>
+											<div class="col-xs-2" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="countryCodeFN" placeholder="+86">
+											</div>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input type="text" class="form-control" name="areaCodeFN" placeholder="021">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<input type="tel" class="form-control" name="faxNumber">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">电邮<span
+													class="red">*</span></label>
+											<div class="col-xs-6" style="padding-left: 0px;">
+												<input type="tel" class="form-control" name="email">
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px">
+												<div class="checkbox margin0">
+													<label> <input type="checkbox" name="receiveEmail" value="">
+														勿发邮件
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">QQ</label>
+											<div class="col-xs-3" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="qq">
+											</div>
+											<label class="col-xs-2 title padding0">微信</label>
+											<div class="col-xs-4" style="padding-left: 0px;">
+												<input type="text" class="form-control" name="weixin">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">创建人</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<input type="tel" class="form-control" name="custName"
+													disabled="disabled">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title padding0">客户经理</label>
+											<div class="col-xs-9" style="padding-left: 0px;">
+												<select class="form-control" name="managerId"></select>
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="nav-tabs-custom E-item-content content-box">
+									<ul class="nav nav-tabs">
+									</ul>
+									<div class="tab-content"></div>
+								</div>
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer hidden"></div>
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+		<!-- Control Sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	
+	<div class="modal fade" id="modal-transfer-visitor" tabindex="-1"
+		role="dialog" aria-labelledby="modal-transfer-visitor"
+		aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">转入观众</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" class="E-info" autocomplete="off">
+						<!-- 即将转入的展会ID -->
+						<input type="hidden" name="exhibitionId" value="">
+						<input type="hidden" name="exhibitorId" value="">
+						<input type="hidden" name="personId" value="">
+						<input type="hidden" name="languageType" value="">
+						<input type="hidden" name="type" value="">
+						<div class="form-group clearfix">
+							<label class="col-xs-3 title padding0">目标展会<span class="red">*</span></label>
+							<div class="col-xs-9">
+								<input type="text" class="form-control" name="exhibitionName" value="" placeholder="请输入展会名称关键字"> <span
+									class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+								<div class="eName_box select_box">
+									<ul class="list-unstyled"></ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-3 title padding0">线索来源<span class="red">*</span></label>
+							<div class="col-xs-9">
+								<select class="form-control" name="dataSourceId"></select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-transfer-visitor">保存</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" id="clue-goto"
+		 tabindex="-1" role="dialog" aria-labelledby="clue-edit"
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm" style="width: 550px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">转入预约登记</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<input type="hidden" name="EXID" value=""><input
+							type="hidden" value="" name="index"> <input type="hidden"
+																		value="" name="cms_name"> <input type="hidden" value=""
+																										 name="id"> <input type="hidden" value="" name="personId">
+						<input type="hidden" value="" name="langType"> <input
+							type="hidden" value="" name="code"> <input type="hidden"
+																	   value="" name="theTime"> <input type="hidden" value=""
+																									   name="theAddr">
+						<div class="form-group clearfix go-to-box">
+							<label class="col-xs-2">问卷调查</label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary clue-goto-save"
+							data-container="body" data-toggle="popover"
+							data-placement="bottom" data-content="转入到预约">转入到预约</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="../dep/js/app.js"></script>
+	<!-- aminLTE for demo purposes-->
+	<script src="../dep/js/demo.js"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"
+		charset="UTF-8"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"
+		charset="UTF-8"></script>
+	<!--上传文件 -->
+	<script src="../dep/uploadify/jquery.Huploadify.js"></script>
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+	</script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script src="../dep/js/ui-components.js"></script>
+	<script>
+        var storageTab = [
+            {"text":"线索来源","num":20800600,"dir":"0"},
+			{"text":"商机","num":20800800,"dir":"0"},
+			{"text":"回应","num":20801000,"dir":"0"},
+			{"text":"备注/历史","num":20801200,"dir":"0"},
+			{"text":"附件","num":20801400,"dir":"0"},
+			{"text":"到场历史","num":20801600,"dir":"0"},
+			{"text":"预登记历史","num":20801800,"dir":"0"},
+			{"text":"同期活动","num":20802000,"dir":"0"}
+        ];
+        storageTab = mergeTab(storageTab,funGetStorage('localStorage', 'storageTab_' + _url));
+	</script>
+	<script src="../js/exhibitorPotentialPersonDetail.js"></script>
+</body>
+
+</html>

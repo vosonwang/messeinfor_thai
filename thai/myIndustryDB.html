@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+	 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- FontAwesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+	type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<div class="group-box">
+					<div class="group-width">
+						<ul class="list-unstyled list-inline pull-left group-list">
+							<li data-type="3" data-id=''>全部</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<!-- <a class="btn fa fa-cog pull-left title-set-btn"
+									data-toggle="tooltip" data-original-title="筛选设置"></a> --><!--  <a
+									class="btn pull-left exhibitor-total"></a>  --><select
+									class="form-control pull-left" name="languageType"
+									style="width: 100px; margin: 4px 10px;">
+									<option value="1">中文</option>
+									<option value="2">Engilsh</option>
+								</select>
+								<input type="text" name="search-text"
+									class="form-control pull-left" placeholder="请输入公司名称进行搜索"
+									style="width: 230px; margin-top: 4px;" />
+								<button class="btn fa fa-search pull-left btn-search"
+									style="margin-top: 4px;"></button>
+								<a class="btn fa fa-filter pull-right exhibitor-screen"
+									data-toggle="tooltip" data-original-title="筛选器"></a>
+								<!-- <a class="btn fa fa-user-times pull-right exhibitor-toList"
+									data-toggle="tooltip" data-original-title="转入参展商列表"
+									data-num="20100200"></a> <a
+									class="btn fa fa-plus pull-right exhibitor-add btn-hide"
+									data-toggle="tooltip" data-original-title="新增"
+									data-num="20100100"></a> -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body content-box">
+								<table class="table table-condensed table-bordered table-hover exhibitor-list">
+									<thead></thead>
+									<tbody></tbody>
+								</table>
+								<!-- pagination -->
+								<div class="m-pagination"></div>
+								<!-- end pagination -->
+							</div>
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+
+					</div>
+					<!-- /.col -->
+
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-light">
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class='form-group margin0'>
+					<label class='control-sidebar-subheading hide'> <input
+						type='checkbox' data-controlsidebar='control-sidebar-open'
+						class='pull-right' /> 保持当前栏在页面右侧
+					</label>
+				</div>
+				<h4 class='control-sidebar-heading margin0'>筛选器</h4>
+				<div class="tab-content-list">
+					<div class="form-group">
+						<label data-type="0" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 邮编
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="1" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 城市/区
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="2" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 省份
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="3" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 国家
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+				</div>
+				<h4 class='control-sidebar-heading' style="border-bottom: solid 1px #444; border-top: solid 1px #444;"><span class="caret"></span>常见任务</h4>
+               	<div class="form-group">
+                    <ul class="list-unstyled">
+                        <!-- <li><a class="exhibitor-group" href="javaScript:;">把记录保存为群组</a></li>
+                        <li>
+                            <a class="import-toExhibitorClue" href="javaScript:;" data-num="">导入到参展商线索</a>
+                        </li>
+                        <li>
+                            <a class="import-toAudienceClue" href="javaScript:;" data-num="">导出到观众线索</a>
+                        </li> -->
+                    </ul>
+                </div>
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
+		<!-- Add the sidebar's background. This div must be placed
+   immediately after the control sidebar -->
+
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"
+		type="text/javascript"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+
+
+    <!-- AdminLTE App -->
+	<script src="../dep/js/app.js" type="text/javascript"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dep/js/demo.js" type="text/javascript"></script>
+	<!-- date 
+	<script src="../js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>-->
+	<!--上传文件-->
+
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+	</script>
+	<!-- include pagination.js -->
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script>
+        var storageTitle = [
+            {"name":"name","show":1,"title":"公司名称"},
+			{"name":"phone","show":1,"title":"电话"},
+			{"name":"mobileNum","show":1,"title":"手机"},
+			{"name":"email","show":1,"title":"邮箱"},
+			{"name":"country","show":1,"title":"国家"},
+			{"name":"province","show":1,"title":"省份"},
+			{"name":"city","show":1,"title":"城市/区"},
+			{"name":"address","show":1,"title":"地址"},
+			{"name":"zipCode","show":1,"title":"邮政编码"}
+        ];
+        storageTitle = mergeTitle(storageTitle,funGetStorage('localStorage', 'storageTitle_' + _url));
+		var _pageFlag = 90500000;
+	</script>
+	<script src="../js/myIndustryDB.js"></script>
+</body>
+
+</html>

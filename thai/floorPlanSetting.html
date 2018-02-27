@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+ 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark"
+	type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon"
+	type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico"
+	rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- font-awesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet"
+	type="text/css" />
+<link href="../dep/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet"/>
+<link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+	rel="stylesheet">
+<!--uploadFile -->
+<link href="../dep/uploadify/Huploadify.css" rel="stylesheet"
+	type="text/css" />
+<link href="../dep/bootstrap/css/metro.css" rel="stylesheet"
+	type="text/css">
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+	type="text/css" />
+	<link href="//cdn.bootcss.com/bootstrap-slider/9.4.1/css/bootstrap-slider.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.tree {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	/* background-color: #fbfbfb; 
+	border: 1px solid #999;*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+
+.tree li {
+	list-style-type: none;
+	margin: 0;
+	padding: 10px 5px 0 5px;
+	position: relative
+}
+
+.tree li::before, .tree li::after {
+	content: '';
+	left: -20px;
+	position: absolute;
+	right: auto
+}
+
+.tree li::before {
+	border-left: 1px solid #999;
+	bottom: 50px;
+	height: 100%;
+	top: 0;
+	width: 1px
+}
+
+.tree li::after {
+	border-top: 1px solid #999;
+	height: 20px;
+	top: 25px;
+	width: 25px
+}
+
+.tree li span {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 0px solid #999;
+	border-radius: 6px;
+	display: inline-block;
+	padding: 0px 0px;
+	margin-top: 10px;
+	margin-left: 3px;
+	text-decoration: none;
+	transform: rotate(0deg);
+	transition: transform 0.2s ease 0s;
+}
+
+.tree li label {
+ font-weight: 100;
+}
+
+.tree li label:HOVER {
+ font-weight: 700;
+}
+
+.tree li label input {
+	vertical-align: middle;
+	margin-bottom: 8px;
+}
+
+.tree li.parent_li>span {
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.tree li.parent_li> ul {
+	padding-left: 52px;
+}
+
+.tree li.parent_li>span.deg90 {
+	transform: rotate(90deg);
+}
+
+.tree>ul>li::before, .tree>ul>li::after {
+	border: 0
+}
+
+.tree li:last-child::before {
+	height: 30px
+}
+/* .tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span {
+    background:#eee;
+    border:1px solid #94a0b4;
+    color:#000
+} */
+</style>
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) 
+        <section class="content-header">
+          <h1>
+            &nbsp;
+          </h1>
+        </section>-->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<!-- <a class="btn fa fa-list pull-right" href="exhibitorList.html"
+									data-toggle="tooltip" data-original-title="返回列表"></a> <a
+									class="btn fa fa-save pull-right exhibitor-save"
+									data-toggle="tooltip" data-original-title="保存"
+									data-num="20200200"></a>-->
+								<h3 class="box-title">
+									<span class="fa fa-file"></span>&nbsp;&nbsp;基础信息
+								</h3> 
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+								<form id="search-Einfo" class="E-info clearfix" autocomplete="off">
+									<div class="form-group">
+										<label class="col-xs-1 title">请选择展会</label>
+										<div class="col-xs-5">
+											<input type="text" class="form-control" name="eName"
+												placeholder="请输入展会名称关键字" required="required"> <span
+												class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+											<div class="EName_box select_box">
+												<ul class="list-unstyled">
+												</ul>
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="nav-tabs-custom E-item-content content-box">
+									<ul class="nav nav-tabs">
+										<!--<li class="more"><a data-toggle="tab" href="#tab_more"-->
+											<!--aria-expanded="false">更多</a></li>-->
+									</ul>
+									<div class="tab-content">
+										<div id="tab_more" class="hidden">
+											<ul class="more-item list-group list-unstyled">
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer hidden"></div>
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+		<!-- Control Sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="../dep/js/app.js"></script>
+	<!-- aminLTE for demo purposes-->
+	<script src="../dep/js/demo.js"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+	<!--上传文件 -->
+	<script src="../dep/uploadify/jquery.Huploadify.js"></script>
+	<script src="../dep/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+	<!-- 树插件 -->
+	<script src="../dep/bootstrap/js/jquery.ztree.all-3.5.min.js"></script>
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap-slider/9.4.1/bootstrap-slider.min.js"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+        var _objLang = _obj._objZh;
+        var storage_80400000 = {
+            "exhibitionName": '',
+            "exhibitionId": '',
+            "groupList": [],
+            "title": [{
+                "text": "合同状态",
+                "num": 80400200,
+                "dir": "0"
+            }, {
+                "text": "展位类型",
+                "num": 80400400,
+                "dir": "0"
+            }]
+        };
+	</script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script src="../js/floorPlanSetting.js"></script>
+</body>
+
+</html>

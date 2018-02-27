@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+	 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- font-awesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+	rel="stylesheet">
+<link href="../dep/bootstrap/css/metro.css" rel="stylesheet" type="text/css" />
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet" type="text/css" />
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="modal fade bs-example-modal-sm" id="company-select" tabindex="-1" role="dialog" aria-labelledby=""
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+							class="sr-only">Close</span></button>
+					<h4 class="modal-title">选择潜在展商</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table table-condensed table-bordered table-hover">
+						<thead>
+						<tr>
+							<th>公司名</th>
+						</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-company-select" data-dismiss="modal">确定</button>
+					<!--<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" id="typeAndManager-select" tabindex="-1" role="dialog" aria-labelledby=""
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+							class="sr-only">Close</span></button>
+					<h4 class="modal-title">选择展商类型和客户经理</h4>
+				</div>
+				<div class="modal-body">
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title text-left">展商类型<span class="red">*</span></label>
+                        <div class="col-xs-9" style="padding-left: 0px">
+                            <select class="form-control" name="typeId">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title text-left">客户经理<span class="red">*</span></label>
+                        <div class="col-xs-9" style="padding-left: 0px">
+                            <select class="form-control" name="managerId">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title text-left">结束时间<span class="red">*</span></label>
+                        <div class="col-xs-9" style="padding-left: 0px">
+                            <input class="form-control" placeholder="" name="endDate" type="text" readonly="readonly">
+                        </div>
+                    </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-typeAndManager-select">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-lg" id="modal-exhibitionRange"
+		 tabindex="-1" role="dialog" aria-labelledby="modal-exhibitionRange"
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-lg" style="width: 900px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">展品范围</h4>
+				</div>
+				<div class="modal-body">
+					<div class="box" style="border-top: none;">
+						<div class="box-header hidden">box-header</div>
+						<div class="box-body" style="border: 1px solid #b3b3b3">
+							<!-- left column -->
+							<div class="col-xs-4 column-exhibitionRange-1"></div>
+							<!-- end column -->
+							<!-- middle column -->
+							<div class="col-xs-4 column-exhibitionRange-2"></div>
+							<!-- end column -->
+							<!-- right column -->
+							<div class="col-xs-4 column-exhibitionRange-3"></div>
+							<!-- end column -->
+						</div>
+						<div class="form-group clearfix" style="padding-top: 15px;">
+							<label>作为搜索条件的类别</label>&nbsp;&nbsp;<a href="#"
+																   class="btn-all-del">全部删除</a>&nbsp;<a href="#"
+																										class="btn-selected-del">选中删除</a>
+							<label class="">&nbsp;&nbsp;（注：为了提高数据检索的精准性，请选择最后一级）</label>
+							<button type="button"
+									class="btn btn-primary pull-right btn-addExhibitionRange">
+								<i class="fa fa-plus"></i>&nbsp;&nbsp;添加已选择项
+							</button>
+						</div>
+						<div class="box-footer" style="border: 1px solid #b3b3b3">
+							<ul class="list-unstyled">
+								<!-- <li><label><input type="checkbox" class=""></label></li> -->
+							</ul>
+						</div>
+						<div class="overlay hidden">
+							<i class="fa fa-spinner fa-pulse"></i>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-save-exhibits">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header)
+        <section class="content-header">
+          <h1>
+            &nbsp;
+          </h1>
+        </section>-->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<div class="set-box">
+									<a class="btn btn-default margin0 set-btn"><span
+										class="fa fa-list"></span>&nbsp;列表</a>
+									<div class="set-list">
+										<div class="form-group clearfix">
+											<select class="pull-left" name="selectPage"
+												style="margin-top: 5px;"></select><a
+												class="pull-right cursorponter btn-back">返回列表</a>
+										</div>
+										<ul class="list-unstyled">
+
+										</ul>
+									</div>
+								</div>
+								<a class="btn fa fa-save pull-right exhibitor-save btn-hide"
+									data-toggle="tooltip" data-original-title="保存" data-num="20130200"></a>
+								<a class="btn fa fa-user-secret pull-right exhibitor-goto" data-toggle="tooltip" data-original-title="转化为潜在展商"></a>
+								<a class="btn fa fa-arrow-right pull-right btn-next" data-original-title="下一条" data-toggle="tooltip"></a>
+								<a class="btn fa fa-arrow-left pull-right btn-prev" data-original-title="上一条" data-toggle="tooltip"></a>
+								<h3 class="box-title">
+									<span class="fa fa-file"></span>&nbsp;&nbsp;预登记展商信息
+								</h3>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">
+								<form class="E-info" id="company-info" autocomplete="off">
+									<input type="hidden" name="countryId" value="">
+									<input type="hidden" name="provinceId" value="">
+									<input type="hidden" name="cityId" value="">
+									<input type="hidden" name="infoString" value="">
+                                    <div class="col-md-4 padding0">
+                                   		<div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-left">公司名<span class="red">*</span></label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="companyName" type="text">
+                                            </div>
+                                        </div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">公司地址</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder=""
+													name="companyAddress" type="text">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">公司邮箱</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="workEmail"
+													   type="email">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">职务</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="title"
+													   type="text">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">微信</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="weixin"
+													   type="text">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">个人传真</label>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="+86"
+													   name="countryCodeFN" type="text">
+											</div>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="021"
+													   name="areaCodeFN" type="text">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="faxNumber"
+													   type="text">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">展品范围</label>
+											<div class="col-xs-9" style="padding-left: 0;">
+												<textarea class="form-control" style="height: 48px;margin-bottom: 0;" name="exhibitionRange" readonly="readonly"></textarea>
+											</div>
+										</div>
+									</div>
+                                    <div class="col-md-4 padding0">
+                                    	<div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-left">公司英文名</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="companyNameEN" type="text">
+                                            </div>
+                                        </div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">公司电话</label>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="+86"
+													name="workCountryCodePN" type="text">
+											</div>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="021"
+													name="workAreaCodePN" type="text">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="workPhone"
+													type="tel">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">公司邮编</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="postCode"
+													type="number">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">联系人类别</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<select class="form-control" name="roleId">
+												</select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">邮箱</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="email"
+													   type="text">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">登记展会</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<select class="form-control" name="exhibitorId"></select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">备注</label>
+											<div class="col-xs-9" style="padding-left: 0;">
+												<textarea class="form-control" style="height: 48px;margin-bottom: 0;" name="des"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4 padding0">
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">所在地区</label>
+											<div class="col-xs-3" style="padding-left: 0px">
+												<input class="form-control" placeholder="国家/地区"
+													   name="countryName" type="text"> <span
+													class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+												<div class="country_box select_box">
+													<ul class="list-unstyled"></ul>
+												</div>
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px">
+												<select class="form-control" name="provinceName"><option value="" disabled selected>省份/州</option></select>
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px">
+												<select class="form-control" name="cityName"><option value="" disabled selected>城市/区</option></select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">公司传真</label>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="+86"
+													   name="workCountryCodeFN" type="text">
+											</div>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="021"
+													   name="workAreaCodeFN" type="text">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="workFaxNumber"
+													   type="text">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">联系人</label>
+											<div class="col-xs-6" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="personName"
+													   type="text">
+											</div>
+											<div class="col-xs-3" style="padding-left: 0px">
+												<select class="form-control" name="salutation">
+													<option value="0">先生</option>
+													<option value="10">小姐</option>
+													<option value="20">女士</option>
+													<option value="30">夫人</option>
+													<option value="40">博士</option>
+													<option value="50">教师</option>
+													<option value="">其他</option>
+												</select>
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">手机</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="mobileNum"
+													   type="number">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">个人电话</label>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="+86"
+													   name="countryCodePN" type="text">
+											</div>
+											<div class="col-xs-2" style="padding-left: 0px">
+												<input class="form-control" placeholder="021"
+													   name="areaCodePN" type="text">
+											</div>
+											<div class="col-xs-5" style="padding-left: 0px">
+												<input class="form-control" placeholder="" name="phone"
+													   type="tel">
+											</div>
+										</div>
+										<div class="form-group clearfix">
+											<label class="col-xs-3 title text-left">状态</label>
+											<div class="col-xs-9" style="padding-left: 0px">
+												<select class="form-control" name="status">
+													<option value=20>已转化</option>
+													<option value=10>未转化</option>
+													<option value=0>无效</option>
+													<option value=-1>删除</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="clearfix"></div>
+								<div class="nav-tabs-custom E-item-content content-box">
+									<ul class="nav nav-tabs">
+									</ul>
+									<div class="tab-content"></div>
+								</div>
+							</div>
+							<!-- /.box-body -->
+							<div class="box-footer hidden"></div>
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+		<!-- Control Sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+	<script src="../dep/js/app.js"></script>
+	<!-- aminLTE for demo purposes-->
+	<script src="../dep/js/demo.js"></script>
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<!-- include Jquery.alert.js -->
+    <!-- include data.js -->
+    <script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+	</script>
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script>
+        var storageTab = [
+            {"text":"产品","num":20130400,"dir":"0"}
+        ];
+        storageTab = mergeTab(storageTab,funGetStorage('localStorage', 'storageTab_' + _url));
+	</script>
+	<script src="../js/exhibitorRegDetail.js"></script>
+</body>
+
+</html>

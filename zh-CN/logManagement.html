@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>MesseInfor</title>
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<!--favicon-->
+	<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+	<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<!-- Bootstrap 3.3.4 -->
+	<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- FontAwesome 4.3.0 -->
+	<link href="../dep/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="../dep/css/mricode.pagination.css" rel="stylesheet" type="text/css" />
+	<!-- Theme style -->
+	<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+	<link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load.
+    <link href="../dist/css/skins/_all-skins.css" rel="stylesheet" type="text/css" /> -->
+	<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) 
+        <section class="content-header">
+          <h1>
+            &nbsp;
+          </h1>
+        </section>-->
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title">
+									<span class="fa fa-file"></span>&nbsp;&nbsp;日志管理
+								</h3>
+								<a class="btn fa fa-filter pull-right t-filter" data-toggle="tooltip" data-original-title="筛选器"></a>
+								<!-- <a class="btn fa fa-plus pull-right t-add" data-toggle="tooltip" data-original-title="添加"></a> -->
+								<form class="form-inline pull-right clearfix" id="log-search-form">
+									<div class="form-group clearfix" style="margin-top:2px;margin-right:50px;margin-bottom:0 !important;">
+										<label class="" for="" style="display:inline-block;">时间&nbsp;:</label>
+										<div class="" style="display:inline-block;position:relative;padding: 0 15px;">
+											<input type="text" class="form-control" name="startDate" value="" readonly="readonly">
+											<span class="glyphicon form-control-feedback glyphicon-calendar"></span>
+										</div>
+										<div class="" style="display:inline-block;">-</div>
+										<div class="" style="display:inline-block;position:relative;padding: 0 15px;">
+											<input type="text" class="form-control" name="endDate" value="" readonly="readonly">
+											<span class="glyphicon form-control-feedback glyphicon-calendar"></span>
+										</div>
+										<div class="" style="display:inline-block;">
+											<input class="btn btn-default btn-xs btn-dateSearch" type="button" value="确定">
+											<input class="btn btn-default btn-xs btn-dateClean" type="button" value="清除">
+										</div>
+									</div>
+									<div class="form-group clearfix" style="margin-bottom:0 !important;">
+										<input type="text" name="search-text" class="form-control" placeholder="请输入公司名/商机名" style="width: 300px; margin-top: 2px;">
+										<button class="btn fa fa-search btn-search" style="margin-top: 2px; margin-right: 30px; margin-left: -4px;"></button>
+									</div>
+								</form>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body content-box">
+								<table class="table table-condensed table-bordered table-hover log-list">
+									<thead>
+										<tr>
+											<!-- <th>编号</th> -->
+											<th>操作人</th>
+											<th>时间</th>
+											<th>类型</th>
+											<th>描述</th>
+											<th>对象</th>
+											<th>IP</th>
+										</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+								<!-- pagination -->
+								<div class="m-pagination"></div>
+								<!-- end pagination -->
+							</div>
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+		<aside class="control-sidebar control-sidebar-light">
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class='form-group margin0'>
+					<label class='control-sidebar-subheading hide'>
+						<input type='checkbox' data-controlsidebar='control-sidebar-open' class='pull-right' />
+						<!-- 保持当前栏在页面右侧 -->
+					</label>
+				</div>
+				<h4 class='control-sidebar-heading margin0'>筛选器</h4>
+				<div class="tab-content-list">
+					<div class="form-group">
+						<label data-type="1" class="control-sidebar-subheading title" style="margin-left: 15px;">
+							<span class="fa fa-chevron-right"></span> 操作人
+						</label>
+						<ul class="list-unstyled" style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="5" class="control-sidebar-subheading title" style="margin-left: 15px;">
+							<span class="fa fa-chevron-right"></span> 类型
+						</label>
+						<ul class="list-unstyled" style="margin-left: 15px; display: none;"></ul>
+					</div>
+				</div>
+				<!-- <a class="clue-import">导入</a> -->
+			</div>
+		</aside>
+		<!-- Control Sidebar -->
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../dep/js/app.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dep/js/demo.js"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+	<!-- include pagination.js -->
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+	</script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script src="../js/logManagement.js"></script>
+</body>
+
+</html>

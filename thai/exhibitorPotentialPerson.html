@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MesseInfor</title>
+<meta
+	content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+	name='viewport'>
+	 		<!--favicon-->
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="../img/favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<!-- Bootstrap 3.3.4 -->
+<link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- FontAwesome 4.3.0 -->
+<link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css" />
+<!-- Theme style -->
+<link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+	type="text/css" />
+<link href="../dep/datetimepicker/bootstrap-datetimepicker.min.css"
+		  rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+	<ul class="dropdown-menu right-menu">
+        <li class="right-edit" data-num="">编辑</li>
+        <li class="right-del" data-num="">删除</li>
+        <li class="right-hide">隐藏</li>
+    </ul>
+    
+	<div class="wrapper">
+
+		<header class="main-header"> </header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar"></aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<a class="btn btn-default a_prev pull-left margin0"><span
+					class="fa fa-chevron-left"></span></a>
+				<div class="group-box">
+					<div class="group-width">
+						<ul class="list-unstyled list-inline pull-left group-list">
+							<li data-type="3" class="active" data-id="all">全部联系人</li>
+						</ul>
+					</div>
+				</div>
+				<div class="set-box">
+					<a class="btn btn-default a_next margin0 set-btn"><span
+						class="fa fa-cog"></span>&nbsp;设置</a>
+					<div class="set-list">
+						<div class="form-group clearfix">
+							<select class="pull-left" name="search-year" style="margin-top: 5px;"></select>
+							<a class="btn fa fa-plus group-add-btn pull-right"
+								data-toggle="modal" data-target="#rule-set" data-num=""></a>
+						</div>
+						<ul class="list-unstyled">
+
+						</ul>
+					</div>
+				</div>
+				<a class="btn btn-default a_next pull-right margin0"><span
+					class="fa fa-chevron-right"></span></a>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<a class="btn fa fa-cog pull-left title-set-btn"
+									data-toggle="tooltip" data-original-title="筛选设置"></a> <input type="text" name="search-text"
+									class="form-control pull-left" placeholder="请输入公司/Email/手机/电话"
+									style="width: 300px; margin-top: 4px;">
+								<div class="select_box search_box" style="width: 300px;margin-left: 23px;margin-top: 13px;">
+									<ul class="list-unstyled"></ul>
+								</div>
+								<button class="btn fa fa-search pull-left btn-search"
+									style="margin-top: 4px;"></button>
+								<a class="btn fa fa-filter pull-right exhibitor-screen"
+									data-toggle="tooltip" data-original-title="筛选器"></a> <!-- <a
+									class="btn fa fa-plus pull-right exhibitor-add"
+									data-toggle="tooltip" data-original-title="新增"
+									data-num=""></a> -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body content-box">
+								<table class="table table-condensed table-bordered table-hover exhibitor-list">
+									<thead></thead>
+									<tbody></tbody>
+								</table>
+								<!-- pagination -->
+								<div class="m-pagination"></div>
+								<!-- end pagination -->
+							</div>
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer"> </footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-light">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class='form-group margin0'>
+					<label class='control-sidebar-subheading hide'> <input
+						type='checkbox' data-controlsidebar='control-sidebar-open'
+						class='pull-right' /> 保持当前栏在页面右侧
+					</label>
+				</div>
+				<h4 class='control-sidebar-heading margin0'>筛选器<a class="btn fa fa-remove clear-title pull-right" data-toggle="tooltip" data-original-title="清空所有" data-placement="bottom" style="color: #111;"></a></h4>
+				<div class="tab-content-list">
+					<div class="form-group">
+						<label data-type="0" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 邮编
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="1" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 城市
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="2" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 省份
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="3" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 国家
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="20" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 客户经理
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="4" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 创建人
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="25" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 兴趣
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="50" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 兴趣级别
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="55" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 回应状态
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="26" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 回应方法
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="5" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 类型
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="6" class="control-sidebar-subheading title"
+							style="margin-left: 15px;"> <span
+							class="fa fa-chevron-right"></span> 子类型
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+					<div class="form-group">
+						<label data-type="500" class="control-sidebar-subheading title"
+							   style="margin-left: 15px;"> <span
+								class="fa fa-chevron-right"></span> 转入人
+						</label>
+						<ul class="list-unstyled"
+							style="margin-left: 15px; display: none;"></ul>
+					</div>
+				</div>
+				<h4 class='control-sidebar-heading'
+					style="border-bottom: solid 1px #444; border-top: solid 1px #444;">
+					<span class="caret"></span> 常见任务
+				</h4>
+				<div class="form-group">
+					<ul class="list-unstyled">
+						<li><a class="btn-assign-accountManager btn-hide" href="#" data-num="20700400">分配客户经理</a></li>
+						<li><a class="btn-export-queryResults btn-hide" href="#" data-num="20700200">导出所有</a></li>
+						<li><a class="btn-export-selected btn-hide" href="#" data-num="20700200">导出所选</a></li>
+						<li><a class="btn-promotion-queryResults" href="#" data-num="">设置所有推广属性</a></li>
+						<li><a class="btn-promotion-selected" href="#" data-num="">设置所选推广属性</a></li>
+					</ul>
+				</div>
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
+	</div>
+	<!-- ./wrapper -->
+	
+	<div class="modal fade bs-example-modal-sm" id="title-set" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">编辑筛选器</h4>
+                </div>
+                <div class="modal-body">
+                    <h5 class="title-select-all"><label><input type="checkbox" value="all" />选择所有</label></h5>
+                    <ul class="todo-list">
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary title-set-save" data-container="body" data-toggle="popover" data-placement="bottom" data-content="确定">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bs-example-modal-sm" id="rule-set" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-sm" style="width: 800px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title">组编辑</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="rule-set-form" autocomplete="off">
+                            <div class="form-group clearfix">
+                                <label class="col-xs-1 padding0">组名</label>
+                                <div class="col-xs-11">
+                                    <input type="text" class="form-control" name="groupName" />
+                                    <input type="hidden" name="flag" value="20700000" />
+                                    <input type="hidden" name="groupId" value="" />
+                                </div>
+                            </div>
+                        </form>
+                        <table class="table table-condensed table-hover rule-list">
+                            <thead>
+                                <tr>
+                                    <td style="width: 30%;">字段</td>
+                                <td style="width: 20%;">规则</td>
+                                <td style="width: 30%;">值</td>
+                                <td style="width: 10%;">关系</td>
+                                <td style="width: 10%;">
+                                    <a class="btn fa fa-plus rule-add-btn"></a>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary rule-set-save" data-container="body" data-toggle="popover" data-placement="bottom" data-content="确定">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="modal fade bs-example-modal-lg" id="modal-exhibitionRange"
+		 tabindex="-1" role="dialog" aria-labelledby="modal-exhibitionRange"
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-lg" style="width: 900px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">展品范围</h4>
+				</div>
+				<div class="modal-body">
+					<div class="box" style="border-top: none;">
+						<div class="box-header hidden">box-header</div>
+						<div class="box-body" style="border: 1px solid #b3b3b3">
+							<!-- left column -->
+							<div class="col-xs-4 column-exhibitionRange-1"></div>
+							<!-- end column -->
+							<!-- middle column -->
+							<div class="col-xs-4 column-exhibitionRange-2"></div>
+							<!-- end column -->
+							<!-- right column -->
+							<div class="col-xs-4 column-exhibitionRange-3"></div>
+							<!-- end column -->
+						</div>
+						<div class="form-group clearfix" style="padding-top: 15px;">
+							<label>作为搜索条件的类别</label>&nbsp;&nbsp;<a href="#"
+																   class="btn-all-del">全部删除</a>&nbsp;<a href="#"
+																										class="btn-selected-del">选中删除</a>
+							<label class="">&nbsp;&nbsp;（注：为了提高数据检索的精准性，请选择最后一级）</label>
+							<button type="button"
+									class="btn btn-primary pull-right btn-addExhibitionRange">
+								<i class="fa fa-plus"></i>&nbsp;&nbsp;添加已选择项
+							</button>
+						</div>
+						<div class="box-footer" style="border: 1px solid #b3b3b3">
+							<ul class="list-unstyled">
+								<!-- <li><label><input type="checkbox" class=""></label></li> -->
+							</ul>
+						</div>
+						<div class="overlay hidden">
+							<i class="fa fa-spinner fa-pulse"></i>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-save-exhibits">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <div class="modal fade" id="modal-city" tabindex="-1" role="dialog" aria-labelledby="modal-city" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-sm" style="width: 400px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">选择省份/城市</h4>
+                </div>
+                <div class="modal-body clearfix">
+                    <div class="hotel-list modal-left-list" style="height: 95px;width: 70%;margin-bottom: 0px;">
+                        <div class="form-group clearfix" style="line-height: 30px;">
+                            <label class="col-xs-2 text-right padding0">国家</label>
+                            <div class="col-xs-10">
+                                <input type="text" name="countryName" class="form-control" />
+                                <div class="country_box select_box" style="display: none;">
+                                    <span class="glyphicon glyphicon-remove country_close select_close"></span>
+                                    <ul class="list-unstyled"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix" style="line-height: 30px;">
+                            <label class="col-xs-2 text-right padding0">省份</label>
+                            <div class="col-xs-10">
+                                <select name="privoceName" class="form-control"></select>
+                            </div>
+                        </div>
+                        <div class="form-group clearfix" style="line-height: 30px;">
+                            <label class="col-xs-2 text-right padding0">城市</label>
+                            <div class="col-xs-10">
+                                <select name="cityName" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hotel-menu modal-right-menu" style="height: 95px;width: 25%;">
+                        <a class="btn btn-default btn-city-submit">确定</a>
+                        <a class="btn btn-default btn-city-reset">重置</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div class="modal fade" id="modal-AssignAccountManager" tabindex="-1" role="dialog"
+		 aria-labelledby="modal-AssignAccountManager" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">分配客户经理</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" class="E-info">
+						<div class="form-group clearfix">
+							<label class="col-xs-3 title padding0">分配范围</label>
+							<div class="col-xs-9">
+								<select class="form-control" name="scope">
+									<option value="10">列表所选</option>
+									<option value="20">查询结果</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group clearfix">
+							<label class="col-xs-3 title padding0">客户经理</label>
+							<div class="col-xs-9">
+								<select class="form-control" name="managerId">
+								</select>
+							</div>
+						</div>
+						<div class="form-group clearfix margin0">
+							<label class="col-xs-3 title padding0">备注</label>
+							<div class="col-xs-9">
+								<textarea class="form-control" name="description" row="2"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-assign-submit">保存</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-setPromotion" tabindex="-1" role="dialog"
+		 aria-labelledby="modal-setPromotion" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">设置推广对象</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" class="E-info">
+						<input type="hidden" name="scope" value="">
+						<div class="form-group clearfix">
+							<!--<label class="col-xs-3 title padding0"></label>-->
+							<div class="col-xs-12">
+								<div class="checkbox text-center">
+									<label> <input type="checkbox" name="receiveEmail" value="">
+										不接收邮件
+									</label>&nbsp;&nbsp; <label style="padding-left: 50px;"> <input type="checkbox" name="receiveSMS" value=""> 不接收短信
+								</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-setPromotion-save">保存</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-export" tabindex="-1" role="dialog" aria-labelledby="modal-export"
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog" style="width: 550px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+							class="sr-only">Close</span></button>
+					<h4 class="modal-title">请选择需要导出的字段</h4>
+				</div>
+				<div class="modal-body clearfix">
+					<form class="E-info" method="post" action="#" target="_blank">
+						<input type="hidden" name="terms" value="">
+						<input type="hidden" name="languageType" value="1">
+						<input type="hidden" name="content" value="10">
+						<label>联系人信息</label>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="0" name="queryName">姓名</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="1" name="queryName">称谓</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="2" name="queryName">公司（中文）</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="3" name="queryName">公司（英文）</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="4" name="queryName">部门</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="5" name="queryName">职位</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="6" name="queryName">国家</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="7" name="queryName">省份</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="8" name="queryName">城市</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="9" name="queryName">地址（中文）</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="10" name="queryName">地址（英文）</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="11" name="queryName">邮箱</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="12" name="queryName">手机</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="13" name="queryName">电话</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="14" name="queryName">传真</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="15" name="queryName">QQ</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="16" name="queryName">主要联系人</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="17" name="queryName">联系人状态</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="18" name="queryName">角色</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="19" name="queryName">客户经理</label>
+							</div>
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="20" name="queryName">创建人</label>
+							</div>
+						</div>
+						<div class="form-group clearfix no-margin">
+							<div class="col-xs-4 no-padding">
+								<label class="title col-xs-10"><input type="checkbox" class="square-export"
+																	  value="21" name="queryName">微信</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<label class="pull-left"><input type="checkbox" value="" name="select-all"
+													style="margin-top: 2px;">选择所有</label>
+					<button type="button" class="btn btn-primary btn-export-submit">确定
+					</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" id="modal-subType"
+		 tabindex="-1" role="dialog" aria-labelledby="modal-subType"
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog" style="width: 570px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">参展商子类型</h4>
+				</div>
+				<div class="modal-body clearfix">
+					<label class="col-xs-12 text-left"
+						   style="line-height: 35px; background-color: #EAEAEA; padding-left: 8px">类型</label>
+					<div class="project-list modal-left-list" style="height:auto;">
+						<div>
+							<table class="table table-condensed table-bordered table-hover table-base">
+								<thead>
+								<tr>
+									<th>Step</th>
+									<th>名称(中文)</th>
+									<th>名称(English)</th>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<label class="col-xs-12 text-left"
+						   style="line-height: 35px; background-color: #EAEAEA; padding-left: 8px">子类型</label>
+					<div class="project-list modal-left-list" style="height:auto;">
+						<div>
+							<table class="table table-condensed table-bordered table-hover table-sub">
+								<thead>
+								<tr>
+									<th>Step</th>
+									<th>名称(中文)</th>
+									<th>名称(English)</th>
+								</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-subType-confirm" data-dismiss="modal">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" id="modal-inExhibition"
+		 tabindex="-1" role="dialog" aria-labelledby="modal-inExhibition"
+		 aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog" style="width: 570px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">选择展会</h4>
+				</div>
+				<div class="modal-body clearfix">
+					<table class="table table-condensed table-bordered table-hover">
+						<thead>
+						<tr>
+							<th>展会名</th>
+						</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-inExhibition-confirm" data-dismiss="modal">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" id="modal-timeRange-date" tabindex="-1" role="dialog"
+		 aria-labelledby="modal-import" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+							class="sr-only">Close</span></button>
+					<h4 class="modal-title">时间选择</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group clearfix">
+						<label class="col-xs-2 padding0">时间选择</label>
+						<div class="col-xs-10 padding0">
+							<input type="text" placeholder="点击选择时间" readonly="readonly" class="form-control">
+							<span class="glyphicon form-control-feedback glyphicon-calendar"></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-timeRange-date-save">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bs-example-modal-sm" id="modal-timeRange-select" tabindex="-1" role="dialog"
+		 aria-labelledby="modal-import" aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+							class="sr-only">Close</span></button>
+					<h4 class="modal-title">范围选择</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group clearfix">
+						<label class="col-xs-2 padding0">时间范围</label>
+						<div class="col-xs-8 padding0">
+							<input type="number" value="1" min="1" step="1" class="form-control">
+						</div>
+						<span class="col-xs-2 padding0"><strong>天内</strong></span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-timeRange-select-save">确定</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- jQuery 2.1.4 -->
+	<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+	<!-- jQuery UI 1.11.2 -->
+	<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"
+		type="text/javascript"></script>
+	<!-- Bootstrap 3.3.2 JS -->
+	<script src="../dep/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- SlimScroll -->
+	<script src="../dep/slimScroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="../dep/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <!-- AdminLTE App -->
+	<script src="../dep/js/app.js" type="text/javascript"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="../dep/js/demo.js" type="text/javascript"></script>
+	<!-- include 多语言资源文件 -->
+	<script src="../dep/js/langT.message.js"></script>
+	<script>
+		var _objLang = _obj._objZh;
+		var storage_20700000 = { 
+			id: '',
+			years : '',
+			groupList : [],
+            searchList : []
+		};
+		var _pageFlag = 20700000;
+	</script>
+	<!-- include pagination.js -->
+	<script src="../dep/js/mricode.pagination.js"></script>
+	<!-- include Jquery.alert.js -->
+	<script src="../dep/js/Jquery.alert.js"></script>
+	<script src="../dep/js/top.js"></script>
+	<script>
+        var storageTitle = [
+            {"name":"personName","show":1,"title":"姓名"},
+            {"name":"companyName","show":1,"title":"公司名称","index":0},
+            {"name":"companyNameEN","show":1,"title":"公司名称（英文）","index":400},
+            {"name":"deptId","show":1,"title":"部门"},
+            {"name":"title","show":1,"title":"职位"},
+            {"name":"address","show":1,"title":"地址"},
+            {"name":"addressEN","show":1,"title":"地址（英文）"},
+            {"name":"roleName","show":1,"title":"角色"},
+            {"name":"phone","show":1,"title":"电话"},
+            {"name":"mobileNum","show":1,"title":"手机","index":300},
+            {"name":"faxNum","show":1,"title":"传真"},
+            {"name":"email","show":1,"title":"电邮"},
+            {"name":"qq","show":1,"title":"QQ"},
+            {"name":"countryName","show":1,"title":"国家"},
+            {"name":"provinceName","show":1,"title":"省份"},
+            {"name":"cityName","show":1,"title":"城市"},
+            {"name":"zipCode","show":1,"title":"邮编"},
+            {"name":"createrName","show":1,"title":"创建人"},
+            {"name":"customerManager","show":1,"title":"客户经理"},
+            {"name":"interest","show":1,"title":"兴趣"},
+            {"name":"interestLevel","show":1,"title":"兴趣级别"},
+            {"name":"startDate","show":1,"title":"回应日期","index":60},
+            {"name":"rStatus","show":1,"title":"回应状态"},
+			{"name":"responseMethod","show":1,"title":"回应方法"},
+			{"name":"responseDesc","show":1,"title":"回应备注"},
+            {"name":"createdStamp","show":1,"title":"创建时间","index":200},
+            {"name":"tranStamp","show":1,"title":"转入时间","index":550},
+            {"name":"tranManager","show":1,"title":"转入人"}
+        ];
+		storageTitle = mergeTitle(storageTitle,funGetStorage('localStorage', 'storageTitle_' + _url));
+		var storageTabTitle = funGetStorage('localStorage', 'storageTabTitle_' + _url)?funGetStorage('localStorage', 'storageTabTitle_' + _url):{};
+	</script>
+	<script src="../js/exhibitorPotentialPerson.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>MesseInfor</title>
+    <meta
+            content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+            name='viewport'>
+
+    <!--favicon-->
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="bookmark"
+          type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico" rel="icon"
+          type="image/x-icon"/>
+    <link href="../img/favicon.ico" mce_href="favicon.ico"
+          rel="shortcut icon" type="image/x-icon"/>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="../dep/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- FontAwesome 4.3.0 -->
+    <link href="../dep/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- Theme style -->
+    <link href="../dep/AdminLTE/AdminLTE.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+            folder instead of downloading all of them to reduce the load.
+    <link href="../dep/AdminLTE/skins/_all-skins.css" rel="stylesheet" type="text/css" />-->
+    <link href="../dep/css/mricode.pagination.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="../dep/bootstrap/css/metro.css" rel="stylesheet"
+          type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css"/>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="../https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="skin-blue-light sidebar-mini sidebar-collapse">
+
+<div class="wrapper">
+
+    <div class="modal fade" id="modal-exhibitorSelect" tabindex="-1" role="dialog" aria-labelledby="modal-exhibitorPotentialToList" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">选择其所在展会</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group clearfix">
+                        <label class="col-xs-3 title padding0">选择展会</label>
+                        <div class="col-xs-9">
+                            <select class="form-control" name="exhibitionId">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-show-info">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Content Header (Page header) -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box" style="border-top: 0;">
+                        <div class="box-header padding0">
+                            <ul class="nav nav-tabs">
+                                <li role="presentation" class="active"><a
+                                        href="javascript:;" style="color: #555;"><span
+                                        class="fa fa-search"></span> 按公司信息搜索</a></li>
+                                <li role="presentation"><a href="javascript:;"
+                                                           style="color: #555;"><span
+                                        class="fa fa-search"></span> 按个人信息搜索</a></li>
+                                <li role="presentation"><a href="javascript:;"
+                                                           style="color: #555;"><span
+                                        class="fa fa-search"></span> 商机查询</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="col-xs-12">
+                                <form class="E-info" id="form-company" autocomplete="off">
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司名称</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="companyName"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">联系人</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="personName"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司电话</label>
+                                            <!--<div class="col-xs-2" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="+86"
+                                                       name="countryCodePN" type="text">
+                                            </div>
+                                            <div class="col-xs-2" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="021"
+                                                       name="areaCodePN" type="text">
+                                            </div>-->
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="phone"
+                                                       type="tel">
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司手机</label>
+                                            <!--<div class="col-xs-2" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="+86"
+                                                       name="countryCodeMN" type="text">
+                                            </div>-->
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="companyMobileNum"
+                                                       type="tel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司网址</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="website"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="col-xs-8" style="padding-left: 35px;">
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="flag" value="1" checked>匹配任意一项
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="flag" value="2">匹配所有
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-4 padding0">
+                                                <a class="btn btn-default btn-search pull-right btn-company-reset"
+                                                   style="padding-top: 3px; padding-bottom: 3px; background-color: #cecece;margin-right: 15px;">重置</a>
+                                                <a class="btn btn-default btn-search pull-right btn-company-search"
+                                                   style="padding-top: 3px; padding-bottom: 3px; background-color: #cecece;margin-right: 5px;">搜索</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="E-info hidden" id="form-employee" autocomplete="off">
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">姓名</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="name"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">手机</label>
+                                            <!--<div class="col-xs-2" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="+86"
+                                                       name="countryCodeMN" type="text">
+                                            </div>-->
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="mobileNum"
+                                                       type="tel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">职位</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="title"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <div class="col-xs-8" style="padding-left: 35px;">
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="flag" value="1" checked>匹配任意一项
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="flag" value="2">匹配所有
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-4 padding0">
+                                                <a class="btn btn-default btn-search pull-right btn-employee-reset"
+                                                   style="padding-top: 3px; padding-bottom: 3px; background-color: #cecece;margin-right: 15px;">重置</a>
+                                                <a class="btn btn-default btn-search pull-right btn-employee-search"
+                                                   style="padding-top: 3px; padding-bottom: 3px; background-color: #cecece;margin-right: 5px;">搜索</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form class="E-info hidden" id="form-business" autocomplete="off">
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <input type="hidden" name="exhibitionId">
+                                            <input type="hidden" name="languageType">
+                                            <label class="col-xs-3 title text-center">选择展会<span style="color: red;">*</span></label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="请输入展会关键字" name="name" type="text">
+                                                <span class="glyphicon form-control-feedback glyphicon glyphicon-search"></span>
+                                                <div class="EName_box select_box">
+                                                    <ul class="list-unstyled">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司电话</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="phone"
+                                                       type="tel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">客户经理</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="personName"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司名称</label>
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="companyName"
+                                                       type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <label class="col-xs-3 title text-center">公司手机</label>
+                                            <!--<div class="col-xs-2" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="+86"
+                                                       name="countryCodeMN" type="text">
+                                            </div>-->
+                                            <div class="col-xs-9" style="padding-left: 0px">
+                                                <input class="form-control" placeholder="" name="companyMobileNum"
+                                                       type="tel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 padding0">
+                                        <div class="form-group clearfix">
+                                            <div class="col-xs-8" style="padding-left: 35px;">
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="flag" value="1" checked>匹配任意一项
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="flag" value="2">匹配所有
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-4 padding0">
+                                                <a class="btn btn-default btn-search pull-right btn-business-reset"
+                                                   style="padding-top: 3px; padding-bottom: 3px; background-color: #cecece;margin-right: 15px;">重置</a>
+                                                <a class="btn btn-default btn-search pull-right btn-business-search"
+                                                   style="padding-top: 3px; padding-bottom: 3px; background-color: #cecece;margin-right: 5px;">搜索</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+                    <div class="box-footer"
+                         style="background: #ffffff none repeat scroll 0 0; border-radius: 3px; border-top: 3px solid #d2d6de; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin-top: 15px;">
+                        <div class="content-box">
+                            <table class="table table-condensed table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>公司名称</th>
+                                    <th>公司电话</th>
+                                    <th>公司网址</th>
+                                    <th>联系人</th>
+                                    <th>公司手机</th>
+                                    <th>联系人手机</th>
+                                    <th>省份/州</th>
+                                    <th>城市</th>
+                                    <th>客户经理</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                            <!-- pagination -->
+                            <div class="m-pagination pagination-company"></div>
+                            <!-- end pagination -->
+                        </div>
+                    </div>
+                    <div class="box-footer hidden"
+                         style="background: #ffffff none repeat scroll 0 0; border-radius: 3px; border-top: 3px solid #d2d6de; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin-top: 15px;">
+                        <div class="content-box">
+                            <table class="table table-condensed table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>公司名称</th>
+                                    <th>公司电话</th>
+                                    <th>公司网址</th>
+                                    <th>联系人</th>
+                                    <th>公司手机</th>
+                                    <th>联系人手机</th>
+                                    <th>省份/州</th>
+                                    <th>城市</th>
+                                    <th>客户经理</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                            <!-- pagination -->
+                            <div class="m-pagination pagination-employee"></div>
+                            <!-- end pagination -->
+                        </div>
+                    </div>
+                    <div class="box-footer hidden"
+                         style="background: #ffffff none repeat scroll 0 0; border-radius: 3px; border-top: 3px solid #d2d6de; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin-top: 15px;">
+                        <div class="content-box">
+                            <table class="table table-condensed table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>展商名称</th>
+                                    <th>客户经理</th>
+                                    <th>展馆</th>
+                                    <th>展位号</th>
+                                    <th>面积</th>
+                                    <th>合同金额</th>
+                                    <th>合同状态</th>
+                                    <th>合同生成日期</th>
+                                    <th>商机状态</th>
+                                    <th>创建时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                            <!-- pagination -->
+                            <div class="m-pagination pagination-business"></div>
+                            <!-- end pagination -->
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.col -->
+
+            </div>
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+
+
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer"></footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.1.4 -->
+<script src="../dep/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="../dep/jQueryUI/jquery-ui-1.11.2.min.js"></script>
+<!-- Bootstrap 3.3.2 JS -->
+<script src="../dep/bootstrap/js/bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../dep/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dep/js/app.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dep/js/demo.js"></script>
+<!-- include 多语言资源文件 -->
+<script src="../dep/js/mricode.pagination.js"></script>
+<!-- include Jquery.alert.js -->
+<script src="../dep/js/Jquery.alert.js"></script>
+<script src="../dep/js/langT.message.js"></script>
+<script>
+    var _objLang = _obj._objZh;
+</script>
+<!-- include pagination.js -->
+<script src="../dep/js/top.js"></script>
+<script src="../js/exhibitorSearch.js"></script>
+</body>
+
+</html>
